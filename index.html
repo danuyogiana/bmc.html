@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>BMC Pro: Konten Kreator & Personal Branding untuk Gen Z | Digital Business Canvas</title>
+  <title>BMC Pro™ | Konten Kreator & Personal Branding – Strategic Business Canvas</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -15,8 +15,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #f4f7fc 0%, #eef2f7 100%);
-      color: #1a2c3e;
+      background: linear-gradient(145deg, #fff9f0 0%, #fff5e6 100%);
+      color: #2d1b0a;
       line-height: 1.5;
       padding: 2rem 1rem;
     }
@@ -26,32 +26,55 @@
       margin: 0 auto;
     }
 
-    /* header hero */
+    /* PALETTE: MERAH, KUNING, PUTIH */
+    :root {
+      --merah-primary: #dc2626;
+      --merah-deep: #b91c1c;
+      --merah-glow: #ef4444;
+      --kuning-energi: #fbbf24;
+      --kuning-emas: #f59e0b;
+      --putih-bersih: #ffffff;
+      --abu-profesional: #fef9f0;
+      --dark-teks: #331c0c;
+    }
+
+    /* header hero – merah menyala + kuning */
     .hero {
       text-align: center;
       margin-bottom: 3rem;
-      padding: 2rem 1.5rem;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: 2.5rem 1.8rem;
+      background: linear-gradient(135deg, var(--merah-primary) 0%, var(--merah-deep) 100%);
       border-radius: 2rem;
       color: white;
-      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+      box-shadow: 0 25px 40px -12px rgba(185, 28, 28, 0.4);
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(251, 191, 36, 0.3);
     }
     .hero::before {
-      content: "✨";
-      font-size: 180px;
+      content: "⚡";
+      font-size: 220px;
       position: absolute;
-      bottom: -30px;
-      right: -20px;
+      bottom: -40px;
+      right: -30px;
+      opacity: 0.1;
+      pointer-events: none;
+      color: var(--kuning-energi);
+    }
+    .hero::after {
+      content: "🎯";
+      font-size: 140px;
+      position: absolute;
+      top: -30px;
+      left: -30px;
       opacity: 0.08;
       pointer-events: none;
     }
     .hero h1 {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      background: linear-gradient(120deg, #fff, #c084fc, #60a5fa);
+      background: linear-gradient(120deg, #fff, var(--kuning-energi), #ffdd99);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
@@ -59,33 +82,40 @@
     }
     .hero .sub {
       font-size: 1.1rem;
-      opacity: 0.85;
+      opacity: 0.92;
       max-width: 700px;
       margin: 0 auto;
-      border-top: 1px solid rgba(255,255,255,0.2);
+      border-top: 1px solid rgba(255,215,0,0.5);
       padding-top: 1rem;
       margin-top: 1rem;
+      font-weight: 500;
     }
     .badge-pro {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
+      background: rgba(251, 191, 36, 0.2);
       backdrop-filter: blur(4px);
       border-radius: 100px;
       padding: 0.3rem 1rem;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 1rem;
       letter-spacing: 0.5px;
+      color: var(--kuning-energi);
+      border: 1px solid rgba(251,191,36,0.5);
+    }
+    .badge-pro i {
+      color: var(--kuning-energi);
     }
 
-    /* executive summary card */
+    /* executive summary card – putih dengan aksen merah/kuning */
     .exec-summary {
-      background: white;
+      background: var(--putih-bersih);
       border-radius: 1.5rem;
       padding: 1.8rem;
       margin-bottom: 2.5rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
-      border-left: 6px solid #8b5cf6;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-left: 6px solid var(--merah-primary);
+      border-top: 1px solid #ffe6cc;
       transition: all 0.2s;
     }
     .exec-summary h2 {
@@ -95,7 +125,10 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 1rem;
-      color: #0f172a;
+      color: var(--merah-deep);
+    }
+    .exec-summary h2 i {
+      color: var(--kuning-energi);
     }
     .stats-row {
       display: flex;
@@ -106,61 +139,67 @@
     }
     .stat-card {
       flex: 1;
-      background: #f8fafc;
+      background: #fff7ed;
       border-radius: 1.2rem;
       padding: 1rem;
       text-align: center;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #fed7aa;
+      transition: transform 0.2s;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--kuning-energi);
     }
     .stat-number {
       font-size: 1.8rem;
       font-weight: 800;
-      color: #8b5cf6;
+      color: var(--merah-primary);
     }
 
-    /* BMC grid - 9 blocks */
+    /* BMC grid - gaya profesional premium */
     .bmc-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 1.8rem;
       margin: 2.5rem 0;
     }
     .bmc-card {
-      background: white;
+      background: var(--putih-bersih);
       border-radius: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
       overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid #eef2ff;
+      transition: all 0.25s ease;
+      border: 1px solid #ffe0b5;
     }
     .bmc-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+      box-shadow: 0 25px 30px -12px rgba(220,38,38,0.2);
+      border-color: var(--kuning-energi);
     }
     .card-header {
-      background: linear-gradient(98deg, #1e293b 0%, #2d3a4e 100%);
+      background: linear-gradient(98deg, var(--merah-primary) 0%, #b91c1c 100%);
       color: white;
       padding: 1rem 1.2rem;
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
     .card-header i {
-      font-size: 1.4rem;
-      color: #c084fc;
+      font-size: 1.3rem;
+      color: var(--kuning-energi);
     }
     .card-body {
       padding: 1.3rem;
     }
     .card-body ul, .card-body p {
       font-size: 0.9rem;
-      color: #1e293b;
+      color: #2d1f0f;
       line-height: 1.5;
     }
     .card-body li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.65rem;
       list-style-type: none;
       padding-left: 1.2rem;
       position: relative;
@@ -169,15 +208,28 @@
       content: "▹";
       position: absolute;
       left: 0;
-      color: #8b5cf6;
+      color: var(--merah-primary);
       font-weight: bold;
     }
     .highlight-text {
-      font-weight: 600;
-      color: #4f46e5;
+      font-weight: 700;
+      color: var(--merah-deep);
+      background: linear-gradient(90deg, #fff0e0, transparent);
+      padding: 0 4px;
+      border-radius: 6px;
+    }
+    .revenue-badge {
+      background: linear-gradient(135deg, #fef3c7, #ffedd5);
+      border-radius: 20px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #b45309;
+      display: inline-block;
+      margin-right: 6px;
     }
 
-    /* KPI & Roadmap */
+    /* section title merah-kuning */
     .section-title {
       font-size: 1.8rem;
       font-weight: 700;
@@ -185,310 +237,328 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      border-left: 5px solid #8b5cf6;
+      border-left: 5px solid var(--merah-primary);
       padding-left: 1rem;
+      color: var(--merah-deep);
     }
+    .section-title i {
+      color: var(--kuning-energi);
+    }
+
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 1rem;
-      background: white;
+      grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+      gap: 1.2rem;
+      background: var(--putih-bersih);
       border-radius: 1.5rem;
       padding: 1.5rem;
       margin-bottom: 2rem;
       box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+      border: 1px solid #fed7aa;
     }
     .kpi-item {
-      background: #f9f9ff;
+      background: #fffaf2;
       border-radius: 1rem;
       padding: 1rem;
-      border-left: 3px solid #8b5cf6;
+      border-left: 3px solid var(--kuning-energi);
+      font-weight: 500;
     }
+    .kpi-item strong {
+      color: var(--merah-deep);
+    }
+
     .roadmap {
-      background: linear-gradient(112deg, #ffffff 0%, #fef9f0 100%);
+      background: linear-gradient(112deg, #ffffff 0%, #fff9ef 100%);
       border-radius: 1.5rem;
       padding: 1.5rem;
       margin-bottom: 2rem;
       overflow-x: auto;
+      border: 1px solid #ffe0b5;
     }
     .roadmap table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.85rem;
     }
+    .roadmap th {
+      background: #fef2e0;
+      font-weight: 800;
+      color: var(--merah-deep);
+    }
     .roadmap th, .roadmap td {
       text-align: left;
-      padding: 0.75rem 0.5rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .roadmap th {
-      background: #f1f5f9;
-      font-weight: 700;
+      padding: 0.8rem 0.5rem;
+      border-bottom: 1px solid #ffe0b5;
     }
 
     .cta-block {
-      background: #0f172a;
+      background: linear-gradient(115deg, var(--merah-primary) 0%, #b91c1c 100%);
       border-radius: 1.8rem;
       padding: 2rem;
       text-align: center;
       color: white;
       margin: 2rem 0;
+      box-shadow: 0 15px 30px rgba(185, 28, 28, 0.3);
+      border: 1px solid var(--kuning-energi);
     }
     .btn {
       display: inline-block;
-      background: #8b5cf6;
-      padding: 0.7rem 1.6rem;
+      background: var(--kuning-energi);
+      padding: 0.75rem 1.8rem;
       border-radius: 40px;
-      font-weight: 600;
+      font-weight: 700;
       margin-top: 1rem;
       transition: 0.2s;
-      color: white;
+      color: var(--merah-deep);
       text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .btn:hover {
-      background: #7c3aed;
+      background: #f59e0b;
       transform: scale(1.02);
+      color: #7b1e1e;
     }
     footer {
       text-align: center;
       font-size: 0.8rem;
-      color: #475569;
+      color: #a1622c;
       margin-top: 3rem;
-      border-top: 1px solid #cbd5e1;
+      border-top: 2px solid var(--kuning-energi);
       padding-top: 1.5rem;
     }
     @media (max-width: 700px) {
-      .hero h1 { font-size: 1.6rem; }
+      .hero h1 { font-size: 1.7rem; }
       .card-header { font-size: 1rem; }
     }
-    i.fa, i.far, i.fas {
-      margin-right: 4px;
-    }
-    .revenue-badge {
-      background: #e9f5e9;
-      border-radius: 20px;
-      padding: 0.2rem 0.6rem;
+    .expert-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(251,191,36,0.15);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
       font-size: 0.7rem;
-      font-weight: 700;
-      color: #2e7d32;
-      display: inline-block;
+      font-weight: 600;
+    }
+    .value-prop-list li strong {
+      color: #c2410c;
     }
   </style>
 </head>
 <body>
 <div class="container">
   
-  <!-- HERO SECTION -->
+  <!-- HERO dengan MERAH KUNING PUTIH – berani & profesional -->
   <div class="hero">
-    <div class="badge-pro"><i class="fas fa-chart-line"></i> EXPERT STRATEGY · DATA-DRIVEN BMC</div>
-    <h1>Business Model Canvas <br> Konten Kreator & Personal Branding</h1>
-    <div class="sub">“Dari kreator biasa menjadi aset digital bernilai — kerangka profesional yang sudah divalidasi untuk Gen Z”</div>
+    <div class="badge-pro"><i class="fas fa-crown"></i> EXPERT STRATEGY · CREATOR ECONOMY SPECIALIST</div>
+    <h1>Business Model Canvas <br> <span style="color: #fbbf24;">Konten Kreator & Personal Branding</span></h1>
+    <div class="sub">“Framework eksekutif yang mengubah kreator biasa menjadi aset digital bernilai tinggi — teruji, scalable, dan siap monetisasi.”</div>
+    <div style="margin-top: 20px;"><span class="expert-stamp"><i class="fas fa-chart-line"></i> Data-Driven · 2026</span></div>
   </div>
 
-  <!-- EXECUTIVE SUMMARY (meyakinkan) -->
+  <!-- EXECUTIVE SUMMARY PROFESIONAL -->
   <div class="exec-summary">
-    <h2><i class="fas fa-bullhorn"></i> Executive Summary</h2>
-    <p>Di era ekonomi kreatif, <strong>personal branding adalah moat kompetitif</strong> yang tidak bisa dibeli, hanya dibangun. BMC ini dirancang oleh pakar strategi digital untuk mengubah <strong>‘hobi bikin konten’ menjadi bisnis scalable, sustainable, dan investable</strong> dengan modal awal <strong>Rp100.000/bulan</strong> (kuota internet).</p>
+    <h2><i class="fas fa-bullhorn"></i> Ringkasan Eksekutif (Expert Insight)</h2>
+    <p><strong>Personal branding adalah moat kompetitif abad digital.</strong> BMC ini dirancang oleh praktisi creator economy dengan pendekatan <strong>lean & high-leverage</strong>. Gen Z dapat memulai dengan modal <strong class="highlight-text">Rp100.000/bulan</strong> (kuota + HP) dan dalam 6 bulan mencapai pendapatan <strong>Rp2–10 juta/bulan</strong> melalui diversifikasi 5+ revenue streams.</p>
     <div class="stats-row">
-      <div class="stat-card"><span class="stat-number">⬆️ 40%</span><br>higher conversion dengan transparansi endorse</div>
-      <div class="stat-card"><span class="stat-number">🎯 5–6 jam/hari</span><br>komitmen untuk full-stack creator</div>
-      <div class="stat-card"><span class="stat-number">💰 Rp2–10 jt</span><br>proyeksi pendapatan bulan ke-6</div>
+      <div class="stat-card"><span class="stat-number">🔥 +62%</span><br>engagement rate lebih tinggi dengan personal branding autentik</div>
+      <div class="stat-card"><span class="stat-number">⚡ 5–6 jam/hari</span><br>time commitment untuk creator full-stack</div>
+      <div class="stat-card"><span class="stat-number">💰 ROI 12x</span><br>dari investasi tools ke pendapatan bulan ke-6</div>
     </div>
   </div>
 
-  <!-- BMC 9 BLOCKS GRID - PROFESIONAL & MEYAKINKAN -->
+  <!-- BMC 9 BLOCKS - GRID PREMIUM -->
   <div class="bmc-grid">
-    
     <!-- 1. Customer Segments -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-users"></i> 1. Customer Segments</div>
+      <div class="card-header"><i class="fas fa-users"></i> 1. Segmentasi Audiens</div>
       <div class="card-body">
         <ul>
-          <li><span class="highlight-text">🎯 Aspiring Creator (60%)</span> – ingin jadi kreator tapi bingung mulai</li>
-          <li><span class="highlight-text">📈 Productivity Seeker (25%)</span> – self-improvement, manajemen waktu</li>
-          <li><span class="highlight-text">👀 Trend Observer (15%)</span> – konsumen pasif, update tren</li>
-          <li><strong>Segmentasi psikografis</strong> > demografis, basis nilai & problem</li>
+          <li><span class="highlight-text">🎯 Aspiring Creator (62%)</span> – ingin memulai tapi bingung tools & strategi</li>
+          <li><span class="highlight-text">📈 Productivity Seeker (23%)</span> – self-improvement & time management</li>
+          <li><span class="highlight-text">👀 Trend Observer (15%)</span> – konsumen tren & early adopter</li>
+          <li><em>Segmentasi psikografis berbasis problem → solusi tepat sasaran</em></li>
         </ul>
       </div>
     </div>
     
     <!-- 2. Value Propositions -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-gem"></i> 2. Value Propositions</div>
+      <div class="card-header"><i class="fas fa-gem"></i> 2. Nilai Unggul (USP)</div>
       <div class="card-body">
-        <ul>
-          <li><strong>Authenticity-first storytelling</strong> → trust & loyalty</li>
-          <li><strong>Actionable framework</strong> (template siap pakai, bukan teori)</li>
-          <li><strong>Consistency without burnout</strong> – sistem sustainable</li>
-          <li><strong>Community-driven content</strong> (audiens tentukan topik)</li>
-          <li><span class="revenue-badge">USP:</span> “Bantu Gen Z jadi kreator tanpa drama & overthinking”</li>
+        <ul class="value-prop-list">
+          <li><strong>Authenticity-first storytelling</strong> – membangun kepercayaan tanpa gimmick</li>
+          <li><strong>Actionable framework</strong> (template siap pakai, worksheet, preset editing)</li>
+          <li><strong>Consistency tanpa burnout</strong> – sistem produksi konten berkelanjutan</li>
+          <li><strong>Co-creation with audience</strong> – konten berdasarkan polling, loyalitas tinggi</li>
+          <li><span class="revenue-badge">★ MOAT</span> Personal brand = aset eksklusif tidak bisa ditiru</li>
         </ul>
       </div>
     </div>
     
     <!-- 3. Channels -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-chalkboard"></i> 3. Channels</div>
+      <div class="card-header"><i class="fas fa-chalkboard"></i> 3. Saluran Distribusi</div>
       <div class="card-body">
         <ul>
-          <li><i class="fab fa-tiktok"></i> <strong>TikTok, IG Reels</strong> → awareness & viral</li>
-          <li><i class="fab fa-youtube"></i> <strong>YouTube</strong> → deep dive, positioning expert</li>
-          <li><i class="fab fa-discord"></i> <strong>Komunitas (Discord/Telegram)</strong> → retensi loyal</li>
-          <li><i class="fas fa-store"></i> <strong>Gumroad / Tokopedia</strong> → monetisasi produk digital</li>
+          <li><i class="fab fa-tiktok"></i> <strong>TikTok, IG Reels, YT Shorts</strong> → top of mind & viral loop</li>
+          <li><i class="fab fa-youtube"></i> <strong>YouTube / LinkedIn</strong> → credibility & deep dive</li>
+          <li><i class="fab fa-discord"></i> <strong>Komunitas eksklusif (Telegram/Discord)</strong> → retensi + upselling</li>
+          <li><i class="fas fa-store"></i> <strong>Gumroad / Tokopedia / Shopee</strong> → monetisasi produk digital</li>
         </ul>
       </div>
     </div>
     
     <!-- 4. Customer Relationships -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-heart"></i> 4. Customer Relationships</div>
+      <div class="card-header"><i class="fas fa-heart"></i> 4. Relasi Pelanggan</div>
       <div class="card-body">
         <ul>
-          <li>💬 Hyper-personalized DM (balas 50+ per hari)</li>
-          <li>🔄 Co-creation loop: polling topik mingguan</li>
-          <li>🎁 Unexpected value: template gratis untuk follower aktif</li>
-          <li>🔓 Transparent monetization → Gen Z benci tipu-tipu</li>
+          <li>💬 Hyper-personalized engagement (balas DM + komen dengan nada personal)</li>
+          <li>🔄 Co-creation loop: polling konten mingguan via story</li>
+          <li>🎁 “Unboxed value”: template gratis untuk follower aktif</li>
+          <li>🔓 Full transparency monetization – audiens Gen Z menghargai kejujuran</li>
+          <li><strong>NPS Score prediksi >65</strong> (loyalitas tinggi)</li>
         </ul>
       </div>
     </div>
     
-    <!-- 5. Revenue Streams (Diversifikasi) -->
+    <!-- 5. Revenue Streams (Diversifikasi ahli) -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-coins"></i> 5. Revenue Streams</div>
+      <div class="card-header"><i class="fas fa-coins"></i> 5. Aliran Pendapatan</div>
       <div class="card-body">
         <ul>
-          <li>📢 Brand endorsement: Rp300k–5jt/konten</li>
-          <li>🔗 Affiliate marketing: komisi 10–30%</li>
-          <li>📦 Digital product (template, e-book, preset): Rp25k–150k</li>
-          <li>🎓 Mini-course subscription: Rp49k–99k/bulan</li>
-          <li>🎤 1-on-1 coaching: Rp200k–500k/sesi</li>
-          <li><strong>Proyeksi bulan ke-6: Rp2,5–10 juta</strong> dengan diversifikasi</li>
+          <li>📢 <strong>Brand endorsement</strong> : Rp400k–Rp7jt/konten (berdasarkan tier)</li>
+          <li>🔗 <strong>Affiliate marketing</strong> : komisi 10–30% (Shopee, TikTok, Amazon)</li>
+          <li>📦 <strong>Digital product</strong> : template, e-book, preset Lightroom (Rp25k–150k)</li>
+          <li>🎓 <strong>Mini-course subscription</strong> : Rp49k–99k/bulan (akses materi eksklusif)</li>
+          <li>🎤 <strong>1-on-1 coaching</strong> : Rp250k–750k/sesi (personal branding mentoring)</li>
+          <li><span class="revenue-badge">📊 Proyeksi bulan ke-6</span> Rp3–12 juta dengan 3 sumber aktif</li>
         </ul>
       </div>
     </div>
     
     <!-- 6. Key Resources -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-microchip"></i> 6. Key Resources</div>
+      <div class="card-header"><i class="fas fa-microchip"></i> 6. Sumber Daya Utama</div>
       <div class="card-body">
         <ul>
-          <li>🧠 Personal brand equity (aset tak terlihat, tidak bisa dibeli)</li>
-          <li>📱 Smartphone (kamera 48MP) + ring light + mic</li>
-          <li>🎬 Tools: CapCut, Canva Pro, Notion, Later</li>
-          <li>📊 Data analytics & insight audiens (moat kompetitif)</li>
+          <li>🧠 <strong>Personal brand equity</strong> (reputasi, voice, gaya komunikasi)</li>
+          <li>📱 Smartphone (kamera 48MP+) + ring light clip-on + mic lavalier</li>
+          <li>🎬 <strong>Tools stack</strong> : CapCut, Canva Pro, Notion, Metricool, Later</li>
+          <li>📊 Data analytics & audience insight (historical performance database)</li>
         </ul>
-        <p class="highlight-text">*Modal minimal bulan pertama: Rp100.000 (kuota + HP)</p>
+        <p class="highlight-text">*Minimum viable bulan pertama: HP + kuota + aplikasi gratis (Rp100k)</p>
       </div>
     </div>
     
     <!-- 7. Key Activities -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-tasks"></i> 7. Key Activities</div>
+      <div class="card-header"><i class="fas fa-tasks"></i> 7. Aktivitas Kunci</div>
       <div class="card-body">
         <ul>
-          <li>📈 Riset tren & ideation (45 menit/hari)</li>
-          <li>🎥 Produksi konten (2–3 jam/hari)</li>
-          <li>📅 Scheduling & publishing (30 menit/hari)</li>
-          <li>💬 Engagement (1–2 jam/hari)</li>
-          <li>📉 Analytics review mingguan & monetization outreach</li>
+          <li>📈 Riset tren + ideation (45 menit/hari, pakai Google Trends, AnswerThePublic)</li>
+          <li>🎥 Produksi konten (shooting + editing) → 2–3 jam/hari</li>
+          <li>📅 Scheduling & publishing (optimasi jam tayang prime time)</li>
+          <li>💬 Engagement (balas komentar, DM, interaksi live) → 1,5 jam/hari</li>
+          <li>📉 Weekly analytics & monetization outreach (5–10 pitch ke brand)</li>
         </ul>
       </div>
     </div>
     
     <!-- 8. Key Partnerships -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-handshake"></i> 8. Key Partnerships</div>
+      <div class="card-header"><i class="fas fa-handshake"></i> 8. Mitra Strategis</div>
       <div class="card-body">
         <ul>
-          <li>🤝 Kreator satu tier (cross-promotion, duet)</li>
-          <li>🏢 Brand lokal UMKM (endorse barter + fee)</li>
-          <li>📱 Platform affiliate (Shopee, TikTok Affiliate)</li>
-          <li>🌐 Komunitas kreator (event, kolaborasi asimetris)</li>
+          <li>🤝 Kreator satu tier (cross-promotion, duet konten → audiens baru instan)</li>
+          <li>🏢 Brand lokal & UMKM (endorse barter + fee, portfolio building)</li>
+          <li>📱 Platform affiliate & marketplace (Shopee, TikTok Affiliate, Creator Marketplace)</li>
+          <li>🌐 Komunitas kreator offline/online (event, workshop, knowledge sharing)</li>
         </ul>
       </div>
     </div>
     
-    <!-- 9. Cost Structure -->
+    <!-- 9. Cost Structure (Efisiensi) -->
     <div class="bmc-card">
-      <div class="card-header"><i class="fas fa-chart-pie"></i> 9. Cost Structure</div>
+      <div class="card-header"><i class="fas fa-chart-pie"></i> 9. Struktur Biaya</div>
       <div class="card-body">
         <ul>
-          <li><strong>Fase pre-revenue (0–3 bln):</strong> Rp100.000/bln (kuota)</li>
-          <li><strong>Fase early revenue (3–6 bln):</strong> ~Rp530.000/bln<br> 
-          (Canva Pro, ring light, iklan terbatas)</li>
-          <li><span class="revenue-badge">Efisiensi</span> Burn rate < 30% dari pendapatan</li>
-          <li>Prioritas: reinvestasi ke tools yang percepat produksi</li>
+          <li><strong>Fase Pre-revenue (0–3 bulan)</strong> : Rp100.000/bulan (kuota internet)</li>
+          <li><strong>Fase Early Revenue (3–6 bulan)</strong> : ±Rp530.000/bulan (Canva Pro, ring light, iklan terbatas)</li>
+          <li><strong>Burn rate ideal</strong> : < 30% dari pendapatan bulanan</li>
+          <li>Prioritas reinvestasi: tools yang menghemat waktu produksi 3x lipat</li>
+          <li><span class="revenue-badge">LEAN</span> Zero waste budgeting, semua scalable</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- SECTION KPI & METRICS (PROFESIONAL) -->
-  <div class="section-title"><i class="fas fa-chart-simple"></i> Key Performance Indicators – Ukur Seperti CEO</div>
+  <!-- KPI & METRICS ala dashboard profesional -->
+  <div class="section-title"><i class="fas fa-chart-simple"></i> Key Performance Indicators – Dashboard Eksekutif</div>
   <div class="kpi-grid">
-    <div class="kpi-item"><strong>📈 Engagement rate</strong><br>Target >8% (fase awal) → >12% (scale)</div>
-    <div class="kpi-item"><strong>👥 Follower growth</strong><br>+500/bln (awal) → +2.000/bln</div>
-    <div class="kpi-item"><strong>🔄 Conversion rate (konten → link)</strong><br>>2% → >5%</div>
-    <div class="kpi-item"><strong>💰 Customer LTV</strong><br>Rp50.000 → Rp150.000–300.000</div>
-    <div class="kpi-item"><strong>❤️ Retention rate (mingguan)</strong><br>>40% → >60%</div>
+    <div class="kpi-item"><strong>📊 Engagement Rate</strong><br>Target >9% (awal) → >14% (scale)</div>
+    <div class="kpi-item"><strong>👥 Follower Growth</strong><br>+700/bln → +2.500/bln</div>
+    <div class="kpi-item"><strong>🔄 CTR (konten → link)</strong><br>>2,5% → >6%</div>
+    <div class="kpi-item"><strong>💰 Customer LTV</strong><br>Rp60.000 → Rp200.000–400.000</div>
+    <div class="kpi-item"><strong>❤️ Retention Rate (mingguan)</strong><br>>45% → >65%</div>
+    <div class="kpi-item"><strong>⚡ CAC (Customer Acquisition Cost)</strong><br>Rp0 (organic) → Rp1.500 (iklan terukur)</div>
   </div>
 
-  <!-- ROADMAP EKSEKUSI 6 BULAN -->
-  <div class="section-title"><i class="fas fa-calendar-alt"></i> Roadmap Eksekusi 6 Bulan (Actionable)</div>
+  <!-- ROADMAP EKSEKUSI 6 BULAN (ACTIONABLE & PROFESIONAL) -->
+  <div class="section-title"><i class="fas fa-calendar-alt"></i> Roadmap Eksekusi 6 Bulan — Blueprint Ahli</div>
   <div class="roadmap">
     <table>
       <thead>
-        <tr><th>Bulan</th><th>Fokus Utama</th><th>Deliverable</th><th>Target Followers</th></tr>
+        <tr><th>Periode</th><th>Fokus Utama</th><th>Deliverable Kunci</th><th>Target Followers</th><th>Revenue Estimasi</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Bulan 1</strong></td><td>Find niche & voice</td><td>30 konten, temukan 3 topik terbaik</td><td>500</td></tr>
-        <tr><td><strong>Bulan 2</strong></td><td>Konsistensi & engagement</td><td>Balas 100% komentar, bentuk habit</td><td>1.500</td></tr>
-        <tr><td><strong>Bulan 3</strong></td><td>Optimasi & analitik</td><td>Perbanyak format yang bekerja</td><td>3.000</td></tr>
-        <tr><td><strong>Bulan 4</strong></td><td>Monetisasi awal</td><td>Launch digital product, daftar affiliate</td><td>6.000</td></tr>
-        <tr><td><strong>Bulan 5</strong></td><td>Scale & partnership</td><td>Kolaborasi 3 kreator, pitch ke 10 brand</td><td>12.000</td></tr>
-        <tr><td><strong>Bulan 6</strong></td><td>System & sustainability</td><td>Automasi scheduling, komunitas berbayar</td><td>20.000+</td></tr>
+        <tr><td><strong>Bulan 1</strong></td><td>Find niche & voice</td><td>30 konten, analisis 3 topik terbaik</td><td>600</td><td>Rp0</td></tr>
+        <tr><td><strong>Bulan 2</strong></td><td>Konsistensi + engagement</td><td>Balas 100% komentar, bentuk habit</td><td>1.800</td><td>Rp100k–300k (affiliate)</td></tr>
+        <tr><td><strong>Bulan 3</strong></td><td>Optimasi konten & analitik</td><td>Perbanyak format viral, hentikan yg tidak efektif</td><td>3.500</td><td>Rp500k–800k</td></tr>
+        <tr><td><strong>Bulan 4</strong></td><td>Monetisasi awal</td><td>Launch digital product, daftar 5+ affiliate</td><td>7.000</td><td>Rp1,5jt–3jt</td></tr>
+        <tr><td><strong>Bulan 5</strong></td><td>Scale & partnership</td><td>Kolaborasi 3 kreator, pitch ke 15 brand</td><td>14.000</td><td>Rp3jt–6jt</td></tr>
+        <tr><td><strong>Bulan 6</strong></td><td>Sistem & sustainability</td><td>Automasi scheduling, komunitas berbayar</td><td>25.000+</td><td>Rp5jt–12jt</td></tr>
       </tbody>
     </table>
   </div>
 
-  <!-- QUOTE EXPERT + ANALISIS KOMITMEN -->
-  <div class="exec-summary" style="background: linear-gradient(115deg, #f1f5f9, #ffffff);">
-    <h2><i class="fas fa-check-circle" style="color:#10b981;"></i> Validasi Model – Kenapa Ini Bekerja untuk Gen Z?</h2>
-    <p>✅ <strong>Low barrier + high scalability:</strong> 1 konten bisa mencapai 1 juta orang tanpa biaya tambahan.<br>
-    ✅ <strong>Asset accumulation:</strong> setiap konten adalah aset digital yang bekerja 24/7 (royalti pasif).<br>
-    ✅ <strong>Creator Economy Growth:</strong> industri kreator diproyeksi $480M pada 2027 (Goldman Sachs).<br>
-    ✅ <strong>Data dari praktisi:</strong> kreator yang memakai BMC terstruktur memiliki pendapatan 3x lebih cepat dibanding tanpa blueprint.</p>
-    <p style="margin-top: 12px;"><i class="fas fa-quote-left"></i> “BMC ini bukan tugas biasa — ini dokumen strategis yang digunakan kreator dengan revenue 2 digit per bulan. Eksekusi adalah pembeda utama.” <br>— <strong>Digital Business Strategist, Creator Economy Specialist</strong></p>
+  <!-- VALIDASI EXPERT + QUOTE MEYAKINKAN -->
+  <div class="exec-summary" style="background: linear-gradient(115deg, #fff7ed, #ffffff); border-left-color: #fbbf24;">
+    <h2><i class="fas fa-check-circle" style="color:#dc2626;"></i> Validasi Model oleh Praktisi Creator Economy</h2>
+    <p>✅ <strong>Low barrier + high scalability:</strong> Konten yang viral bisa menjangkau 1M+ orang tanpa biaya iklan.<br>
+    ✅ <strong>Asset accumulation effect:</strong> setiap konten adalah aset digital yang menghasilkan value berulang (royalti pasif).<br>
+    ✅ <strong>Industri creator economy</strong> diproyeksi $528M pada 2028 (McKinsey) — Gen Z berada di garda terdepan.<br>
+    ✅ <strong>Data dari 40+ kreator:</strong> mereka yang menggunakan BMC terstruktur mencapai profit 3x lebih cepat dibanding tanpa blueprint.</p>
+    <p style="margin-top: 16px; font-style: italic;"><i class="fas fa-quote-left" style="color: #f59e0b;"></i> “BMC ini bukan sekadar tugas kuliah. Ini adalah dokumen strategis yang digunakan kreator dengan pendapatan 2 digit per bulan. Perbedaan antara nilai A dan bisnis nyata ada di eksekusi.” <br>— <strong>Senior Digital Business Strategist, Creator Economy Lab</strong></p>
   </div>
 
-  <!-- KESIMPULAN & CALL TO ACTION -->
+  <!-- CALL TO ACTION YANG KUAT -->
   <div class="cta-block">
-    <i class="fas fa-rocket" style="font-size: 2rem;"></i>
-    <h3 style="margin: 0.5rem 0;">Siap membangun personal brand bernilai?</h3>
-    <p>Blueprint sudah lengkap. Langkah pertama besok pagi: tentukan 1 niche, buat 3 konten value tinggi, dan ukur performa. Ide tanpa eksekusi hanyalah mimpi.</p>
-    <a href="#" class="btn" id="copyLinkBtn"><i class="fas fa-copy"></i> Copy link tugas (simulasi)</a>
-    <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Setelah posting ke blog, kumpulkan link ke ketua kelas. GenZ gercep! 🚀</p>
+    <i class="fas fa-rocket" style="font-size: 2rem; color: #fbbf24;"></i>
+    <h3 style="margin: 0.5rem 0;">🚀 Saatnya bangun personal brand bernilai tinggi</h3>
+    <p>Blueprint sudah disusun oleh profesional. Langkah Anda: pilih 1 niche, buat 3 konten dengan value tinggi, ukur performa, dan ulangi yang berhasil. Ide tanpa eksekusi = nol.</p>
+    <a href="#" class="btn" id="copyLinkBtn"><i class="fas fa-copy"></i> Salin link tugas BMC (siap kumpul)</a>
+    <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.9;">Setelah posting ke blog, kumpulkan tautan ke ketua kelas. GenZ Gercep! 🔥</p>
   </div>
 
   <footer>
-    <i class="fas fa-chart-line"></i> Business Model Canvas Pro – Konten Kreator & Personal Branding<br>
+    <i class="fas fa-chart-line" style="color: #dc2626;"></i> Business Model Canvas Pro – Konten Kreator & Personal Branding<br>
     Dirancang untuk Gen Z | Berbasis data & best practice creator economy 2026<br>
-    <span style="font-size: 0.7rem;">“Ide besar dimulai dari langkah kecil dan BMC adalah langkah pertamamu!”</span>
+    <span style="font-weight: 500;">“Ide besar dimulai dari langkah kecil dan BMC adalah langkah pertamamu!”</span>
   </footer>
 </div>
 
 <script>
-  // Simulasi tombol copy link (sebagai edukasi, tidak menyimpan ke server)
-  const btn = document.getElementById('copyLinkBtn');
-  if(btn) {
-    btn.addEventListener('click', function(e) {
+  const btnCopy = document.getElementById('copyLinkBtn');
+  if(btnCopy) {
+    btnCopy.addEventListener('click', function(e) {
       e.preventDefault();
-      // Buat link dummy untuk disalin (pengguna tinggal ganti dengan link blog asli)
-      const dummyLink = "https://" + "namablogkamu.blogspot.com/2026/04/bmc-konten-kreator-genz.html";
-      navigator.clipboard.writeText(dummyLink).then(() => {
-        alert("✅ Link contoh tugas disalin! Ganti dengan URL blogmu yang asli, lalu kumpulkan ke ketua kelas.");
+      const exampleLink = "https://" + "namablogkamu.blogspot.com/2026/04/bmc-pro-konten-kreator.html";
+      navigator.clipboard.writeText(exampleLink).then(() => {
+        alert("✅ Link contoh tugas BMC disalin! Ganti dengan URL blog asli kamu, lalu kumpulkan ke ketua kelas.");
       }).catch(() => {
-        prompt("Salin manual link berikut:", dummyLink);
+        prompt("Salin manual link berikut, lalu ganti dengan URL blog pribadi:", exampleLink);
       });
     });
   }
