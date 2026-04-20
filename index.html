@@ -3,346 +3,279 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Arsitektur Strategis Business Model Canvas oleh Danu Yogiana."/>
-  <title>BMC Professional Edition – Danu Yogiana</title>
+  <title>Strategic Architecture — Danu Yogiana</title>
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      /* Palette: Clean, Bright, & Professional */
-      --bg-main:      #ffffff;
-      --bg-sub:       #f8f9fc;
-      --accent:       #0052FF; /* Digital Blue */
-      --accent-soft:  rgba(0, 82, 255, 0.05);
-      --border:       #e2e8f0;
-      --text-dark:    #0f172a; /* Slate 900 */
-      --text-muted:   #64748b; /* Slate 500 */
-      
-      --font-main:    'Plus Jakarta Sans', sans-serif;
-      --shadow-sm:    0 2px 4px rgba(0,0,0,0.02);
-      --shadow-md:    0 10px 30px rgba(0,0,0,0.04);
-      --transition:   all 0.3s ease;
+      --primary: #0062ff;
+      --surface: #ffffff;
+      --bg: #f4f7fa;
+      --text-main: #0a0f1d;
+      --text-sub: #64748b;
+      --border: rgba(0, 98, 255, 0.08);
+      --radius: 24px;
+      --shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.05);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body { 
-      background-color: var(--bg-main); 
-      color: var(--text-dark); 
-      font-family: var(--font-main); 
+      background: var(--bg); 
+      color: var(--text-main); 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      padding: 40px 20px;
       line-height: 1.6;
     }
 
-    /* Header Section */
-    header {
-      padding: 100px 20px 60px;
-      text-align: center;
-      background: radial-gradient(circle at top right, var(--accent-soft), transparent 40%);
+    /* Header Design */
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
     }
+    .header-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .header-content h1 span { color: var(--primary); }
+    .header-content p { color: var(--text-sub); margin-top: 10px; font-weight: 400; }
     
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 8px 20px; border-radius: 100px;
-      margin-bottom: 20px;
-    }
-    
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800; letter-spacing: -1.5px;
-      color: var(--text-dark); margin-bottom: 15px;
-    }
-    header h1 span { color: var(--accent); }
-    
-    header p {
-      color: var(--text-muted);
-      font-size: 1.1rem; max-width: 700px; margin: 0 auto;
-    }
-
-    /* Layout Wrapper */
-    .wrap { max-width: 1400px; margin: 0 auto; padding: 20px 30px 80px; }
-
-    .sec-div {
-      display: flex; align-items: center; gap: 15px;
-      font-size: 11px; font-weight: 800;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--text-muted);
-      margin: 50px 0 25px;
-    }
-    .sec-div::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-    /* Grid System */
-    .row-5 { display: grid; grid-template-columns: 1fr 1fr 1.2fr 1fr 1fr; gap: 16px; }
-    .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    /* Card Design */
-    .card {
-      background: var(--bg-main);
+    .author-tag {
+      text-align: right;
+      padding: 15px 25px;
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
       border: 1px solid var(--border);
-      border-radius: 16px; padding: 32px;
-      transition: var(--transition);
+    }
+    .author-tag small { text-transform: uppercase; letter-spacing: 2px; font-size: 10px; color: var(--text-sub); display: block; }
+    .author-tag strong { font-size: 1.1rem; color: var(--primary); }
+
+    /* The Master Grid (Bento Style) */
+    .bmc-canvas {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(2, minmax(280px, auto)) repeat(1, minmax(200px, auto));
+      gap: 20px;
+    }
+
+    /* Area Definitions */
+    .kp { grid-area: 1 / 1 / 2 / 3; }   /* Key Partners */
+    .ka { grid-area: 1 / 3 / 2 / 5; }   /* Key Activities */
+    .vp { grid-area: 1 / 5 / 3 / 7; }   /* Value Prop (Tall) */
+    .cr { grid-area: 1 / 7 / 2 / 9; }   /* Relationships */
+    .cs { grid-area: 1 / 9 / 3 / 11; }  /* Segments (Tall) */
+    .kr { grid-area: 2 / 1 / 3 / 3; }   /* Resources */
+    .ch { grid-area: 2 / 3 / 3 / 5; }   /* Channels */
+    .rs { grid-area: 2 / 7 / 3 / 9; }   /* Revenue */
+    .cost { grid-area: 3 / 1 / 4 / 6; } /* Cost (Wide) */
+    .rev { grid-area: 3 / 6 / 4 / 11; } /* Revenue Structure (Wide) */
+
+    /* Card Styling */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 35px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
+      overflow: hidden;
     }
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent);
+      transform: translateY(-8px) scale(1.01);
+      border-color: var(--primary);
+      box-shadow: 0 20px 60px -15px rgba(0, 98, 255, 0.12);
     }
     
-    .icon-wrap {
-      width: 48px; height: 48px;
-      background: var(--bg-sub);
-      border-radius: 12px;
+    .card-icon {
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 25px;
+      background: var(--accent-soft);
+      width: 50px; height: 50px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; color: var(--accent);
-      margin-bottom: 24px;
-      transition: var(--transition);
-    }
-    .card:hover .icon-wrap {
-      background: var(--accent);
-      color: white;
+      border-radius: 14px;
+      background: rgba(0, 98, 255, 0.05);
     }
 
-    .lbl {
-      font-size: 10px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      color: var(--accent); margin-bottom: 8px;
+    .card h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
     }
-    .ttl {
-      font-size: 1.25rem; font-weight: 700;
-      color: var(--text-dark); margin-bottom: 18px;
-    }
-    
-    .items { display: flex; flex-direction: column; gap: 12px; }
-    .item {
-      display: flex; gap: 10px; align-items: flex-start;
-      font-size: 0.9rem; color: var(--text-muted);
-    }
-    .item i {
-      color: var(--accent); font-size: 12px; margin-top: 4px;
-    }
-    .item strong { color: var(--text-dark); font-weight: 600; }
-
-    /* Value Proposition (Highlight) */
-    .vp {
-      background: var(--accent);
-      border: none;
-    }
-    .vp .lbl, .vp .ttl, .vp .item, .vp .item i { color: white; }
-    .vp .icon-wrap { background: rgba(255,255,255,0.1); color: white; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 15px; }
-    .tag {
-      background: rgba(255,255,255,0.15);
-      color: white; padding: 6px 12px; border-radius: 6px;
-      font-size: 0.75rem; font-weight: 600;
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
     }
 
-    /* Revenue Breakdown */
-    .rev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
-    .rv {
-      background: var(--bg-sub);
-      padding: 16px; border-radius: 12px; text-align: center;
-      border: 1px solid transparent; transition: var(--transition);
+    /* List Styling */
+    .list { list-style: none; }
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      color: var(--text-sub);
     }
-    .rv:hover { border-color: var(--accent); background: white; }
-    .rv-num { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
-    .rv-lbl { font-size: 0.7rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+    .list-item i { color: var(--primary); font-size: 14px; margin-top: 5px; }
+    .list-item strong { color: var(--text-main); font-weight: 600; }
 
-    footer {
-      background: var(--bg-sub);
-      padding: 50px 20px; text-align: center;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted); font-size: 0.9rem;
-    }
-    footer strong { color: var(--text-dark); }
+    /* Value Prop Special Styling */
+    .vp { background: var(--primary); border: none; color: white; }
+    .vp .card-icon { background: rgba(255,255,255,0.1); color: white; }
+    .vp h3, .vp h2 { color: white; }
+    .vp .list-item { color: rgba(255,255,255,0.8); }
+    .vp .list-item i, .vp .list-item strong { color: white; }
 
-    /* Animation */
-    .card {
-      opacity: 0; transform: translateY(20px);
-      animation: slideUp 0.6s ease forwards;
+    /* Revenue Breakdown Visualization */
+    .rev-box {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
     }
-    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
-    .d1{animation-delay:0.1s} .d2{animation-delay:0.2s} .d3{animation-delay:0.3s}
-    .d4{animation-delay:0.4s} .d5{animation-delay:0.5s} .d6{animation-delay:0.6s}
+    .rev-stat {
+      flex: 1;
+      padding: 20px;
+      background: var(--bg);
+      border-radius: 18px;
+      text-align: center;
+    }
+    .rev-stat span { font-size: 1.8rem; font-weight: 800; color: var(--primary); display: block; }
+    .rev-stat label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--text-sub); }
 
-    @media(max-width:1100px){
-      .row-5, .row-3, .row-2 { grid-template-columns: 1fr 1fr; }
-      .vp { grid-column: span 2; }
-    }
-    @media(max-width:650px){
-      .row-5, .row-3, .row-2 { grid-template-columns: 1fr; }
-      .vp { grid-column: span 1; }
+    /* Responsiveness */
+    @media (max-width: 1200px) {
+      .bmc-canvas { display: flex; flex-direction: column; }
+      .header-container { flex-direction: column; align-items: flex-start; gap: 20px; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="badge"><i class="fas fa-layer-group"></i> Business Architecture</div>
-  <h1>Strategic <span>Personal Branding</span></h1>
-  <p>Model bisnis kreator digital masa depan. Fokus pada skalabilitas, audiens loyal, dan inovasi konten.</p>
-</header>
+  <div class="header-container">
+    <div class="header-content">
+      <p>ARCHITECTURAL BLUEPRINT</p>
+      <h1>Business Model <span>Canvas</span></h1>
+      <p>Strategi pertumbuhan kreator digital di era ekonomi kreatif modern.</p>
+    </div>
+    <div class="author-tag">
+      <small>Lead Architect</small>
+      <strong>Danu Yogiana</strong>
+    </div>
+  </div>
 
-<div class="wrap">
-
-  <div class="sec-div">Fundamental & Market</div>
-  <div class="row-5">
-
-    <div class="card d1">
-      <div class="icon-wrap"><i class="fas fa-handshake-angle"></i></div>
-      <p class="lbl">Key Partners</p>
-      <p class="ttl">Mitra Strategis</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Corporate Brands</strong> — Sponsorship & kolaborasi jangka panjang</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Affiliate Networks</strong> — Shopee/TikTok Shop ecosystem</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Talent Management</strong> — Skalabilitas & legalitas karir</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Creative Circle</strong> — Sinergi sesama konten kreator</div></div>
+  <div class="bmc-canvas">
+    
+    <div class="card kp">
+      <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+      <h3>Strategic Alliances</h3>
+      <h2>Partners</h2>
+      <div class="list">
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Brand Ecosystems</strong> Corporate & SME</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Affiliate Networks</strong> Shopee & TikTok</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Talent Agencies</strong> Management & Legal</span></div>
       </div>
     </div>
 
-    <div class="card d2">
-      <div class="icon-wrap"><i class="fas fa-wand-magic-sparkles"></i></div>
-      <p class="lbl">Key Activities</p>
-      <p class="ttl">Inti Aktivitas</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Content Excellence</strong> — Produksi narasi visual berkualitas</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Community Nurturing</strong> — Membangun loyalitas audiens</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Data Analysis</strong> — Optimasi strategi berbasis performa</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Product Development</strong> — Inovasi produk digital premium</div></div>
+    <div class="card ka">
+      <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3>Core Operations</h3>
+      <h2>Activities</h2>
+      <div class="list">
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Content Creation</strong> High-end Visuals</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Data Analytics</strong> Performance Tuning</span></div>
       </div>
     </div>
 
-    <div class="card vp d3">
-      <div class="icon-wrap"><i class="fas fa-crown"></i></div>
-      <p class="lbl">Value Proposition</p>
-      <p class="ttl">Proposisi Nilai</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-star"></i><div><strong>Authentic Authority</strong> — Kepercayaan & otoritas di niche spesifik</div></div>
-        <div class="item"><i class="fas fa-star"></i><div><strong>Gen-Z Connection</strong> — Relatabilitas tinggi dengan pasar muda</div></div>
-      </div>
-      <div class="tags">
-        <span class="tag">Digital Assets</span>
-        <span class="tag">Solution-Driven</span>
-        <span class="tag">Impactful Story</span>
+    <div class="card vp">
+      <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
+      <h3>Unique Value</h3>
+      <h2>Proposition</h2>
+      <div class="list">
+        <div class="list-item"><i class="fa-solid fa-star"></i><span><strong>Authentic Authority</strong> Niche Expertise</span></div>
+        <div class="list-item"><i class="fa-solid fa-star"></i><span><strong>Gen-Z Bridge</strong> High Relatability</span></div>
+        <div class="list-item"><i class="fa-solid fa-star"></i><span><strong>Digital Assets</strong> Premium Solutions</span></div>
       </div>
     </div>
 
-    <div class="card d4">
-      <div class="icon-wrap"><i class="fas fa-comments-dollar"></i></div>
-      <p class="lbl">Customer Relationships</p>
-      <p class="ttl">Bina Hubungan</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Exclusive Access</strong> — Komunitas Discord/Telegram privat</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Direct Engagement</strong> — Q&A Live & feedback loop harian</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Membership Tier</strong> — Konten eksklusif bagi pendukung setia</div></div>
+    <div class="card kr">
+      <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+      <h3>Strategic Assets</h3>
+      <h2>Resources</h2>
+      <div class="list">
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Brand Equity</strong> Personal Identity</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Tech Stack</strong> AI & Production Pro</span></div>
       </div>
     </div>
 
-    <div class="card d5">
-      <div class="icon-wrap"><i class="fas fa-bullseye"></i></div>
-      <p class="lbl">Customer Segments</p>
-      <p class="ttl">Target Pasar</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Digital Natives</strong> — Gen-Z & Milenial usia 18-28 tahun</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Forward-Thinking Brands</strong> — UMKM & Korporasi modern</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Skill Seekers</strong> — Individu yang mencari inspirasi & edukasi</div></div>
+    <div class="card cr">
+      <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+      <h3>Retention</h3>
+      <h2>Relationships</h2>
+      <div class="list">
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Private Hubs</strong> Discord / Telegram</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Direct Access</strong> Live Sessions</span></div>
+      </div>
+    </div>
+
+    <div class="card ch">
+      <div class="card-icon"><i class="fa-solid fa-share-nodes"></i></div>
+      <h3>Distribution</h3>
+      <h2>Channels</h2>
+      <div class="list">
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Social Hubs</strong> TikTok & YouTube</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Owned Media</strong> GitHub / Website</span></div>
+      </div>
+    </div>
+
+    <div class="card cs">
+      <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+      <h3>Market Segments</h3>
+      <h2>Customers</h2>
+      <div class="list">
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Gen-Z (18-28)</strong> Primary Audience</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Digital Brands</strong> B2B Partnerships</span></div>
+        <div class="list-item"><i class="fa-solid fa-circle-check"></i><span><strong>Skill Seekers</strong> Educational Niche</span></div>
+      </div>
+    </div>
+
+    <div class="card cost">
+      <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+      <h3>Investment Structure</h3>
+      <h2>Cost Structure</h2>
+      <div class="rev-box">
+        <div class="rev-stat"><label>OpEx</label><span>Software</span></div>
+        <div class="rev-stat"><label>CapEx</label><span>Equipment</span></div>
+        <div class="rev-stat"><label>Growth</label><span>Marketing</span></div>
+      </div>
+    </div>
+
+    <div class="card rev">
+      <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Economic Model</h3>
+      <h2>Revenue Streams</h2>
+      <div class="rev-box">
+        <div class="rev-stat"><label>Brand</label><span>45%</span></div>
+        <div class="rev-stat"><label>Digital</label><span>30%</span></div>
+        <div class="rev-stat"><label>Affiliate</label><span>25%</span></div>
       </div>
     </div>
 
   </div>
-
-  <div class="sec-div">Resources & Distribution</div>
-  <div class="row-3">
-
-    <div class="card d1">
-      <div class="icon-wrap"><i class="fas fa-gem"></i></div>
-      <p class="lbl">Key Resources</p>
-      <p class="ttl">Sumber Daya</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Brand Equity</strong> — Reputasi & identitas visual unik</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Tech Stack</strong> — Hardware pro & software kreatif (AI-Powered)</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Audience Base</strong> — Database pengikut & email subscriber</div></div>
-      </div>
-    </div>
-
-    <div class="card d2">
-      <div class="icon-wrap"><i class="fas fa-share-nodes"></i></div>
-      <p class="lbl">Channels</p>
-      <p class="ttl">Saluran Distribusi</p>
-      <div class="items">
-        <div class="item"><i class="fab fa-youtube"></i><div><strong>Main Hub</strong> — YouTube & Website Portofolio</div></div>
-        <div class="item"><i class="fab fa-tiktok"></i><div><strong>Viral Discovery</strong> — TikTok & Instagram Reels</div></div>
-        <div class="item"><i class="fas fa-code-branch"></i><div><strong>Professional Hub</strong> — GitHub Pages & LinkedIn</div></div>
-      </div>
-    </div>
-
-    <div class="card d3">
-      <div class="icon-wrap"><i class="fas fa-vault"></i></div>
-      <p class="lbl">Revenue Streams</p>
-      <p class="ttl">Arus Pendapatan</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Commercial Integration</strong> — Brand sponsorship & ads</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Knowledge Products</strong> — E-book, templates, & kursus</div></div>
-        <div class="item"><i class="fas fa-circle-check"></i><div><strong>Performance Income</strong> — Affiliate marketing commissions</div></div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="sec-div">Financial Analysis</div>
-  <div class="row-2">
-
-    <div class="card d4">
-      <div class="icon-wrap"><i class="fas fa-calculator"></i></div>
-      <p class="lbl">Cost Structure</p>
-      <p class="ttl">Struktur Biaya</p>
-      <div class="items">
-        <div class="item"><i class="fas fa-minus"></i><div><strong>Operational Cost</strong> — Langganan software & internet</div></div>
-        <div class="item"><i class="fas fa-minus"></i><div><strong>Growth Investment</strong> — Iklan & pengembangan skill</div></div>
-        <div class="item"><i class="fas fa-minus"></i><div><strong>Equipment</strong> — Pemeliharaan & upgrade alat produksi</div></div>
-      </div>
-    </div>
-
-    <div class="card d5">
-      <div class="icon-wrap"><i class="fas fa-chart-line"></i></div>
-      <p class="lbl">Revenue Forecast</p>
-      <p class="ttl">Proyeksi Pendapatan</p>
-      <div class="rev-grid">
-        <div class="rv">
-          <div class="rv-num">45%</div>
-          <div class="rv-lbl">Brand Sponsorship</div>
-        </div>
-        <div class="rv">
-          <div class="rv-num">30%</div>
-          <div class="rv-lbl">Digital Products</div>
-        </div>
-        <div class="rv">
-          <div class="rv-num">15%</div>
-          <div class="rv-lbl">Affiliate / Ads</div>
-        </div>
-        <div class="rv">
-          <div class="rv-num">10%</div>
-          <div class="rv-lbl">Services / Coaching</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-<footer>
-  Arsitektur Strategis &bull; <strong>Konten Kreator & Personal Branding</strong> &bull; Developed by <strong>Danu Yogiana</strong>
-</footer>
 
 </body>
 </html>
