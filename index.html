@@ -3,391 +3,423 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BMC – Konten Kreator & Personal Branding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Arsitektur Strategis Business Model Canvas untuk Konten Kreator & Personal Branding. Didesain secara profesional oleh Danu Yogiana."/>
+  <title>Arsitektur BMC Pro – Konten Kreator & Personal Branding</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
     :root {
-      --bg:     #eef2f7;
-      --card:   #ffffff;
-      --card2:  #f4f7fb;
-      --border: #d0daea;
-      --navy:   #0f2d5e;
-      --blue:   #1a5fd1;
-      --cyan:   #00b4d8;
-      --orange: #f96b27;
-      --lime:   #44c06c;
-      --amber:  #f5a623;
-      --text:   #0f1b2d;
-      --muted:  #5a6a82;
-      --fh:     'Syne', sans-serif;
-      --fb:     'DM Sans', sans-serif;
+      /* Palette: Deep Navy & Premium Gold */
+      --bg-deep:      #0a0e17; /* Hampir hitam tapi navy */
+      --bg-card:      rgba(255, 255, 255, 0.03); /* Glassmorphism base */
+      --glass-border: rgba(255, 255, 255, 0.08);
+      
+      --text-main:    #e0e6ed;
+      --text-muted:   #94a3b8;
+      
+      --prime:       #bfa071; /* Gold/Amber Premium */
+      --prime-dim:   rgba(191, 160, 113, 0.1);
+      --prime-glow:  rgba(191, 160, 113, 0.3);
+      
+      --white:       #ffffff;
+      
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-body:    'Inter', sans-serif;
+      
+      --shadow-pro: 0 20px 40px rgba(0, 0, 0, 0.4);
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: var(--fb); min-height: 100vh; }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      background: var(--bg-deep); 
+      color: var(--text-main); 
+      font-family: var(--font-body); 
+      min-height: 100vh; 
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Pola Latar Belakang Subtle */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(191, 160, 113, 0.05) 0%, transparent 25%),
+        radial-gradient(circle at 85% 85%, rgba(191, 160, 113, 0.03) 0%, transparent 25%);
+      z-index: -1;
+    }
+
+    /* Header: Minimalis & Berkelas */
     header {
-      background: linear-gradient(135deg, #0a2248 0%, #0f2d5e 55%, #1a3f80 100%);
-      padding: 52px 40px 44px;
+      padding: 80px 40px 60px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      border-bottom: 1px solid var(--glass-border);
+      background: rgba(10, 14, 23, 0.5);
+      backdrop-filter: blur(10px);
     }
-    header::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(circle at 15% 50%, rgba(0,180,216,0.2) 0%, transparent 55%),
-        radial-gradient(circle at 85% 30%, rgba(249,107,39,0.15) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    header::after {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
+    
     .badge {
-      display: inline-block;
-      background: rgba(0,180,216,0.18);
-      border: 1px solid rgba(0,180,216,0.45);
-      color: #7fe8f5;
-      font-family: var(--fh);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      padding: 6px 18px; border-radius: 100px;
-      margin-bottom: 18px; position: relative; z-index: 1;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--prime-dim);
+      border: 1px solid rgba(191, 160, 113, 0.3);
+      color: var(--prime);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 8px 20px; border-radius: 100px;
+      margin-bottom: 24px;
     }
+    
     header h1 {
-      font-family: var(--fh);
-      font-size: clamp(2rem, 5.5vw, 4rem);
-      font-weight: 800; line-height: 1.06;
-      color: #fff; position: relative; z-index: 1;
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700; line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 16px;
     }
-    header h1 span { color: var(--cyan); }
+    header h1 span { color: var(--prime); }
+    
     header p {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.92rem; font-weight: 300;
-      margin-top: 12px; position: relative; z-index: 1;
+      color: var(--text-muted);
+      font-size: 1.1rem; font-weight: 300;
+      max-width: 600px; margin: 0 auto 30px;
     }
+    
     .meta-row {
-      display: flex; justify-content: center;
-      gap: 12px; margin-top: 22px; flex-wrap: wrap;
-      position: relative; z-index: 1;
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;
     }
     .meta-pill {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 100px; padding: 7px 16px;
-      font-size: 12px; color: rgba(255,255,255,0.55);
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px; padding: 8px 18px;
+      font-size: 13px; color: var(--text-muted);
     }
-    .meta-pill strong { color: #fff; font-weight: 500; }
-    .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+    .meta-pill strong { color: var(--prime); font-weight: 600; }
 
-    .wrap { max-width: 1300px; margin: 0 auto; padding: 34px 22px 68px; }
+    /* Main Container */
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 50px 30px 100px; }
 
+    /* Section Divider Pro */
     .sec-div {
-      display: flex; align-items: center; gap: 14px;
-      font-family: var(--fh); font-size: 9.5px;
-      font-weight: 700; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--muted);
-      margin: 26px 0 14px;
+      display: flex; align-items: center; gap: 20px;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--prime);
+      margin: 60px 0 30px;
     }
-    .sec-div::before, .sec-div::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
+    .sec-div::before { content: ''; width: 40px; height: 1px; background: var(--prime); }
+    .sec-div::after { content: ''; flex: 1; height: 1px; background: var(--glass-border); }
+
+    /* Grid System */
+    .row-5 { display: grid; grid-template-columns: 1fr 1fr 1.3fr 1fr 1fr; gap: 20px; }
+    .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    /* Card Pro Style (Glassmorphism) */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px; padding: 30px;
+      backdrop-filter: blur(5px);
+      transition: var(--transition);
+      height: 100%; display: flex; flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(191, 160, 113, 0.5);
+      box-shadow: 0 15px 35px rgba(191, 160, 113, 0.1);
+    }
+    
+    /* Pro Icons */
+    .icon-box {
+      width: 50px; height: 50px;
+      border-radius: 8px;
+      background: var(--prime-dim);
+      border: 1px solid rgba(191, 160, 113, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: var(--prime);
+      margin-bottom: 25px;
+      transition: var(--transition);
+    }
+    .card:hover .icon-box {
+      background: var(--prime);
+      color: var(--bg-deep);
+      box-shadow: 0 0 15px var(--prime-glow);
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px; padding: 22px;
-      position: relative; overflow: hidden;
-      height: 100%;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 34px rgba(15,45,94,0.11); }
-    .stripe {
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 4px; border-radius: 16px 16px 0 0;
-    }
-    .icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; margin-bottom: 14px;
-    }
+    /* Typography inside cards */
     .lbl {
-      font-size: 9.5px; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 5px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--prime); margin-bottom: 8px;
     }
     .ttl {
-      font-family: var(--fh); font-size: 1rem;
-      font-weight: 700; margin-bottom: 14px; line-height: 1.2;
+      font-family: var(--font-heading);
+      font-size: 1.6rem; font-weight: 600;
+      color: var(--white); margin-bottom: 20px;
+      line-height: 1.2;
     }
-    .items { display: flex; flex-direction: column; gap: 7px; }
+    
+    .items { display: flex; flex-direction: column; gap: 12px; margin-top: auto;}
     .item {
-      display: flex; gap: 8px; align-items: flex-start;
-      font-size: 0.79rem; color: var(--muted); line-height: 1.45;
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;
     }
-    .bul {
-      width: 5px; height: 5px; border-radius: 50%;
-      margin-top: 5px; flex-shrink: 0;
+    .item i {
+      color: var(--prime); font-size: 12px; margin-top: 5px; flex-shrink: 0;
     }
-    .item strong { color: var(--text); font-weight: 500; }
+    .item strong { color: var(--white); font-weight: 500; }
 
-    .row-5 { display: grid; grid-template-columns: 1fr 1fr 1.22fr 1fr 1fr; gap: 13px; }
-    .row-3 { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 13px; }
-    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
-
-    /* Value Prop */
+    /* Value Proposition (Special Style) */
     .vp {
-      background: linear-gradient(140deg, #0a2248 0%, #0f2d5e 50%, #133570 100%);
-      border-radius: 16px; padding: 28px;
-      text-align: center; position: relative; overflow: hidden;
-      height: 100%;
+      background: linear-gradient(145deg, #111827, #030712);
+      border: 2px solid var(--prime);
+      text-align: center; justify-content: center;
     }
-    .vp::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(0,180,216,0.22) 0%, transparent 52%),
-        radial-gradient(circle at 80% 50%, rgba(249,107,39,0.16) 0%, transparent 52%);
-      pointer-events: none;
-    }
-    .vp .lbl { color: rgba(255,255,255,0.4); position: relative; z-index:1; }
-    .vp .ttl { color: #fff; font-size: 1.1rem; position: relative; z-index:1; }
+    .vp .ttl { font-size: 2rem; }
     .tags {
       display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 8px; margin-top: 16px;
-      position: relative; z-index:1;
+      gap: 10px; margin-top: 20px;
     }
     .tag {
-      border-radius: 100px; padding: 6px 14px;
-      font-size: 0.72rem; font-weight: 500; border: 1px solid;
+      border-radius: 4px; padding: 6px 14px;
+      font-size: 0.75rem; font-weight: 500;
+      background: var(--prime-dim);
+      border: 1px solid rgba(191, 160, 113, 0.2);
+      color: var(--prime);
     }
-    .tc { background: rgba(0,180,216,0.14); border-color: rgba(0,180,216,0.38); color: #7fe8f5; }
-    .to { background: rgba(249,107,39,0.14); border-color: rgba(249,107,39,0.38); color: #fdba8c; }
-    .tl { background: rgba(68,192,108,0.14); border-color: rgba(68,192,108,0.38); color: #90e3af; }
-    .ta { background: rgba(245,166,35,0.14); border-color: rgba(245,166,35,0.38); color: #fad07a; }
-    .tw { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.18); color: rgba(255,255,255,0.72); }
 
-    /* Revenue grid */
-    .rev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 6px; }
+    /* Revenue Breakdown Pro */
+    .rev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
     .rv {
-      border-radius: 11px; padding: 14px; text-align: center;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px; padding: 20px; text-align: center;
+      transition: var(--transition);
     }
-    .rv-num { font-family: var(--fh); font-size: 1.45rem; font-weight: 800; }
-    .rv-lbl { font-size: 0.68rem; margin-top: 3px; }
+    .rv:hover { border-color: var(--prime); background: var(--prime-dim); }
+    .rv-num { 
+      font-family: var(--font-heading); 
+      font-size: 2rem; font-weight: 700; 
+      color: var(--prime); 
+    }
+    .rv-lbl { font-size: 0.75rem; color: var(--text-muted); margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
+    /* Footer: Formal & Strategic */
     footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.42);
-      text-align: center; padding: 20px;
-      font-size: 0.73rem; letter-spacing: 0.4px;
+      border-top: 1px solid var(--glass-border);
+      background: rgba(10, 14, 23, 0.8);
+      color: var(--text-muted);
+      text-align: center; padding: 40px;
+      font-size: 0.85rem; letter-spacing: 0.5px;
     }
-    footer strong { color: var(--cyan); font-weight: 500; }
+    footer strong { color: var(--prime); font-weight: 600; }
 
-    .card, .vp {
-      opacity: 0; transform: translateY(18px);
-      animation: up 0.5s ease forwards;
+    /* Animations */
+    .card, header, .sec-div {
+      opacity: 0; transform: translateY(20px);
+      animation: fadeInUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
-    @keyframes up { to { opacity:1; transform:translateY(0); } }
-    .d1{animation-delay:.05s} .d2{animation-delay:.1s}  .d3{animation-delay:.14s}
-    .d4{animation-delay:.18s} .d5{animation-delay:.22s} .d6{animation-delay:.27s}
-    .d7{animation-delay:.32s} .d8{animation-delay:.37s} .d9{animation-delay:.42s}
+    header { animation-delay: 0.1s; }
+    .wrap { animation-delay: 0.2s; }
+    
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Delays untuk grid items */
+    .d1{animation-delay:0.3s} .d2{animation-delay:0.35s} .d3{animation-delay:0.4s}
+    .d4{animation-delay:0.45s} .d5{animation-delay:0.5s} .d6{animation-delay:0.55s}
+    .d7{animation-delay:0.6s} .d8{animation-delay:0.65s} .d9{animation-delay:0.7s}
 
-    @media(max-width:960px){
-      .row-5{grid-template-columns:1fr 1fr}
-      .row-3{grid-template-columns:1fr}
-      .row-2{grid-template-columns:1fr}
+    /* Responsiveness Pro */
+    @media(max-width:1200px){
+      .row-5 { grid-template-columns: 1fr 1fr 1fr; }
+      .vp { grid-column: span 3; order: -1; } /* VP di atas */
     }
-    @media(max-width:560px){
-      .row-5{grid-template-columns:1fr}
-      header{padding:36px 20px 30px}
+    @media(max-width:900px){
+      .row-5, .row-3, .row-2 { grid-template-columns: 1fr 1fr; }
+      .vp { grid-column: span 2; }
+    }
+    @media(max-width:600px){
+      .row-5, .row-3, .row-2 { grid-template-columns: 1fr; }
+      .vp { grid-column: span 1; }
+      header { padding: 60px 20px; }
+      .card { padding: 25px; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="badge">&#9670; Business Model Canvas</div>
-  <h1>Konten Kreator<br>&amp; <span>Personal Branding</span></h1>
-  <p>Model bisnis digital kreatif &nbsp;·&nbsp; Gen-Z &nbsp;·&nbsp; Creator Economy</p>
+  <div class="badge"><i class="fas fa-chess-knight"></i> Arsitektur Strategis Bisnis</div>
+  <h1>Personal Branding<br>&amp; <span>Creator Economy</span></h1>
+  <p>Model Bisnis Berbasis Nilai untuk Konten Kreator Digital &bull; Fase Gen-Z</p>
   <div class="meta-row">
-    <div class="meta-pill"><span class="dot" style="background:var(--cyan)"></span>Segmen: <strong>Gen-Z 18–28 thn</strong></div>
-    <div class="meta-pill"><span class="dot" style="background:var(--orange)"></span>Platform: <strong>Digital-First</strong></div>
-    <div class="meta-pill"><span class="dot" style="background:var(--lime)"></span>Model: <strong>Creator Economy</strong></div>
+    <div class="meta-pill"><i class="fas fa-user-tag"></i> Target: <strong>Eksosistem Gen-Z</strong></div>
+    <div class="meta-pill"><i class="fas fa-satellite-dish"></i> Model: <strong>Digital-First</strong></div>
+    <div class="meta-pill"><i class="fas fa-chart-line"></i> Fokus: <strong>Skalabilitas Nilai</strong></div>
   </div>
 </header>
 
 <div class="wrap">
 
-  <div class="sec-div">Infrastruktur &amp; Pasar</div>
+  <div class="sec-div">Pilar Infrastruktur &amp; Pasar</div>
   <div class="row-5">
 
     <div class="card d1">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--blue),#6da3f7)"></div>
-      <div class="icon" style="background:#e6eefb">🤝</div>
+      <div class="icon-box"><i class="fas fa-handshake"></i></div>
       <p class="lbl">Key Partners</p>
-      <p class="ttl" style="color:var(--blue)">Mitra Utama</p>
+      <p class="ttl">Mitra Strategis</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:var(--blue)"></span><div><strong>Brand & UMKM</strong> — klien endorsement & kolaborasi</div></div>
-        <div class="item"><span class="bul" style="background:var(--blue)"></span><div><strong>Platform Digital</strong> — YouTube, TikTok, Instagram</div></div>
-        <div class="item"><span class="bul" style="background:var(--blue)"></span><div><strong>Agency Talent</strong> — manajemen & monetisasi</div></div>
-        <div class="item"><span class="bul" style="background:var(--blue)"></span><div><strong>Komunitas Kreator</strong> — kolaborasi silang</div></div>
-        <div class="item"><span class="bul" style="background:var(--blue)"></span><div><strong>Platform Freelance</strong> — Fiverr, Sribulancer</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Entitas Korporat & UMKM</strong> — Kolaborasi Komersial (Sponsor)</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Jaringan Afiliasi</strong> — Akselerasi Penjualan (Shopee/TikTok)</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Platform Distribusi</strong> — Ekosistem YouTube, Meta, TikTok</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Manajemen Talenta</strong> — Optimasi Karir & Negosiasi</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Sinergi Kreator</strong> — Cross-Promotion & Co-Creation</div></div>
       </div>
     </div>
 
     <div class="card d2">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--orange),#ffb38a)"></div>
-      <div class="icon" style="background:#fff0e6">⚡</div>
+      <div class="icon-box"><i class="fas fa-tasks"></i></div>
       <p class="lbl">Key Activities</p>
-      <p class="ttl" style="color:var(--orange)">Aktivitas Utama</p>
+      <p class="ttl">Inti Aktivitas</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:var(--orange)"></span><div><strong>Produksi konten</strong> harian/mingguan konsisten</div></div>
-        <div class="item"><span class="bul" style="background:var(--orange)"></span><div><strong>Personal branding</strong> di semua platform</div></div>
-        <div class="item"><span class="bul" style="background:var(--orange)"></span><div><strong>Engagement aktif</strong> bersama komunitas</div></div>
-        <div class="item"><span class="bul" style="background:var(--orange)"></span><div><strong>Analitik & optimasi</strong> berbasis data</div></div>
-        <div class="item"><span class="bul" style="background:var(--orange)"></span><div><strong>Produksi produk digital</strong> e-book, template</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Produksi Konten</strong> — Narasi visual konsisten & high-impact</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Manajemen Brand</strong> — Kurasi identitas digital proaktif</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Pemberdayaan Komunitas</strong> — Moderasi & Engagement aktif</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Intelijen Data</strong> — Analisis metrik untuk optimasi strategi</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Inovasi Produk Digital</strong> — Riset & Pengembangan nilai baru</div></div>
       </div>
     </div>
 
-    <div class="vp d3">
+    <div class="card vp d3">
+      <div class="icon-box"><i class="fas fa-gem"></i></div>
       <p class="lbl">Value Proposition</p>
-      <p class="ttl">&#128142; Nilai Unik</p>
+      <p class="ttl">Proposisi Nilai</p>
       <div class="tags">
-        <span class="tag tc">Konten Autentik</span>
-        <span class="tag to">Niche Expertise</span>
-        <span class="tag tl">Komunitas Loyal</span>
-        <span class="tag ta">Produk Digital</span>
-        <span class="tag tw">Story-Driven Brand</span>
-        <span class="tag tc">One-Stop Creator</span>
-        <span class="tag to">Konten Relatable Gen-Z</span>
+        <span class="tag">Otoritas Niche</span>
+        <span class="tag">Narasi Autentik</span>
+        <span class="tag">Ekosistem Loyal</span>
+        <span class="tag">Aset Digital Premium</span>
+        <span class="tag">Relatabilitas Gen-Z</span>
+        <span class="tag">Solusi Edukatif</span>
       </div>
     </div>
 
     <div class="card d4">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--cyan),#8de8f7)"></div>
-      <div class="icon" style="background:#e0f7fc">&#128172;</div>
+      <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
       <p class="lbl">Customer Relationships</p>
-      <p class="ttl" style="color:#008fab">Hubungan Pelanggan</p>
+      <p class="ttl">Bina Hubungan</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:var(--cyan)"></span><div><strong>Komunitas online</strong> Discord & Telegram</div></div>
-        <div class="item"><span class="bul" style="background:var(--cyan)"></span><div><strong>Live session</strong> & Q&A interaktif rutin</div></div>
-        <div class="item"><span class="bul" style="background:var(--cyan)"></span><div><strong>Membership eksklusif</strong> behind-the-scene</div></div>
-        <div class="item"><span class="bul" style="background:var(--cyan)"></span><div><strong>Newsletter</strong> mingguan & tips personal</div></div>
-        <div class="item"><span class="bul" style="background:var(--cyan)"></span><div><strong>Respon komentar</strong> bangun loyalitas</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Ekosistem Tertutup</strong> — Hub eksklusif (Discord/Telegram)</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Dialog Interaktif</strong> — Sesi Live & Q&A Sinkronus rutin</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Akses Premium</strong> — Konten di balik layar (Membership)</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Komunikasi Terkurasi</strong> — Newsletter strategi mingguan</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Sistem Respon Aktif</strong> — Validasi audiens via komentar</div></div>
       </div>
     </div>
 
     <div class="card d5">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--lime),#a0edbe)"></div>
-      <div class="icon" style="background:#eafaf1">&#128101;</div>
+      <div class="icon-box"><i class="fas fa-users"></i></div>
       <p class="lbl">Customer Segments</p>
-      <p class="ttl" style="color:#2e9954">Segmen Pelanggan</p>
+      <p class="ttl">Segmen Pasar</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:var(--lime)"></span><div><strong>Gen-Z 18–28 thn</strong> pelajar & fresh grad</div></div>
-        <div class="item"><span class="bul" style="background:var(--lime)"></span><div><strong>Brand & UMKM</strong> butuh influencer marketing</div></div>
-        <div class="item"><span class="bul" style="background:var(--lime)"></span><div><strong>Kreator pemula</strong> ingin belajar dari mentor</div></div>
-        <div class="item"><span class="bul" style="background:var(--lime)"></span><div><strong>Profesional muda</strong> butuh personal branding</div></div>
-        <div class="item"><span class="bul" style="background:var(--lime)"></span><div><strong>Komunitas niche</strong> tech, lifestyle, edukatif</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Demografi Gen-Z (18–28)</strong> — Pelajar & Profesional Muda</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Entitas Bisnis</strong> — Brand yang menyasar pasar muda</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Kreator Aspirasional</strong> — Individu yang butuh mentor</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Niche Enthusiasts</strong> — Komunitas Spesifik (Tech/Style)</div></div>
       </div>
     </div>
 
   </div>
 
-  <div class="sec-div">Sumber Daya &amp; Saluran</div>
+  <div class="sec-div">Sumber Daya &amp; Saluran Distribusi</div>
   <div class="row-3">
 
     <div class="card d6">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--amber),#fcd88a)"></div>
-      <div class="icon" style="background:#fff8e6">&#128296;</div>
+      <div class="icon-box"><i class="fas fa-briefcase"></i></div>
       <p class="lbl">Key Resources</p>
-      <p class="ttl" style="color:#b07a08">Sumber Daya Utama</p>
+      <p class="ttl">Sumber Daya</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:var(--amber)"></span><div><strong>Personal brand</strong> — identitas visual & suara unik</div></div>
-        <div class="item"><span class="bul" style="background:var(--amber)"></span><div><strong>Skill kreatif</strong> — editing, desain, copywriting</div></div>
-        <div class="item"><span class="bul" style="background:var(--amber)"></span><div><strong>Peralatan konten</strong> — kamera, mic, lighting</div></div>
-        <div class="item"><span class="bul" style="background:var(--amber)"></span><div><strong>Tools digital</strong> — Canva Pro, CapCut, Figma</div></div>
-        <div class="item"><span class="bul" style="background:var(--amber)"></span><div><strong>Database audiens</strong> — email list & follower</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Ekuitas Brand Pribadi</strong> — Reputasi & Suara Unik</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Kompetensi Kreatif</strong> — Full-stack Digital Skills</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Infrastruktur Produksi</strong> — Alat studio kelas profesional</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Stack Teknologi</strong> — Lisensi Software Kreatif & AI</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Aset Audiens</strong> — Database email & Pengikut loyal</div></div>
       </div>
     </div>
 
-    <div class="card d7" style="background:var(--card2)">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--navy),var(--blue))"></div>
-      <div class="icon" style="background:#dce7f8">&#128225;</div>
+    <div class="card d7">
+      <div class="icon-box"><i class="fas fa-network-wired"></i></div>
       <p class="lbl">Channels</p>
-      <p class="ttl" style="color:var(--navy)">Saluran Distribusi</p>
+      <p class="ttl">Saluran Distribusi</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:#e00"></span><div><strong>YouTube</strong> — video panjang & vlog edukasi</div></div>
-        <div class="item"><span class="bul" style="background:#222"></span><div><strong>TikTok & Reels</strong> — konten short-form viral</div></div>
-        <div class="item"><span class="bul" style="background:#e1306c"></span><div><strong>Instagram</strong> — portofolio & story branding</div></div>
-        <div class="item"><span class="bul" style="background:#0077b5"></span><div><strong>Blog / Medium</strong> — artikel SEO long-form</div></div>
-        <div class="item"><span class="bul" style="background:var(--orange)"></span><div><strong>Email Marketing</strong> — nurture & penjualan</div></div>
-        <div class="item"><span class="bul" style="background:var(--lime)"></span><div><strong>Gumroad / Payhip</strong> — produk digital</div></div>
+        <div class="item"><i class="fab fa-youtube"></i><div><strong>YouTube Core</strong> — Hub Edukasi & Narasi Panjang</div></div>
+        <div class="item"><i class="fab fa-tiktok"></i><div><strong>Short-Form Hub</strong> — Akselerasi Viralitas (TikTok/Reels)</div></div>
+        <div class="item"><i class="fab fa-instagram"></i><div><strong>Visual Portfolio</strong> — Branding & Story Engagement</div></div>
+        <div class="item"><i class="fas fa-code"></i><div><strong>GitHub / Website Pro</strong> — Dokumentasi & Otoritas Teknis</div></div>
+        <div class="item"><i class="fas fa-envelope-open-text"></i><div><strong>Direct Mail</strong> — Nurturing & Konversi Penjualan</div></div>
       </div>
     </div>
 
     <div class="card d8">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--blue),var(--cyan))"></div>
-      <div class="icon" style="background:#e6eefb">&#128176;</div>
+      <div class="icon-box"><i class="fas fa-funnel-dollar"></i></div>
       <p class="lbl">Revenue Streams</p>
-      <p class="ttl" style="color:var(--blue)">Aliran Pendapatan</p>
+      <p class="ttl">Arus Pendapatan</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:var(--orange)"></span><div><strong>Brand Deal</strong> — sponsorship & endorsement</div></div>
-        <div class="item"><span class="bul" style="background:var(--blue)"></span><div><strong>AdSense / TikTok Fund</strong> — monetisasi platform</div></div>
-        <div class="item"><span class="bul" style="background:var(--cyan)"></span><div><strong>Produk Digital</strong> — template, e-book, preset</div></div>
-        <div class="item"><span class="bul" style="background:var(--lime)"></span><div><strong>Membership</strong> — Patreon / Close Friend berbayar</div></div>
-        <div class="item"><span class="bul" style="background:var(--amber)"></span><div><strong>Kelas Online</strong> — workshop & mentoring</div></div>
-        <div class="item"><span class="bul" style="background:#9b59b6"></span><div><strong>Affiliate Marketing</strong> — komisi referral</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Sponsorship</strong> — Brand Deals & Integrasi Konten</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Monetisasi Platform</strong> — AdSense & Dana Kreator</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Komoditas Digital</strong> — Template, E-book, Kursus</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Layanan Premium</strong> — Mentoring & Konsultasi Strategis</div></div>
+        <div class="item"><i class="fas fa-check-circle"></i><div><strong>Pendapatan Afiliasi</strong> — Komisi Kinerja Produk</div></div>
       </div>
     </div>
 
   </div>
 
-  <div class="sec-div">Keuangan</div>
+  <div class="sec-div">Analisis Finansial</div>
   <div class="row-2">
 
-    <div class="card d9" style="background:#fff9f6; border-color:#ffd8c2">
-      <div class="stripe" style="background:linear-gradient(90deg,#e05518,#ffad88)"></div>
-      <div class="icon" style="background:#ffe5d0">&#128197;</div>
+    <div class="card d9">
+      <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
       <p class="lbl">Cost Structure</p>
-      <p class="ttl" style="color:#c04a14">Struktur Biaya</p>
+      <p class="ttl">Struktur Biaya</p>
       <div class="items">
-        <div class="item"><span class="bul" style="background:#e05518"></span><div><strong>Peralatan produksi</strong> — kamera, mikrofon, lighting</div></div>
-        <div class="item"><span class="bul" style="background:#e05518"></span><div><strong>Langganan tools</strong> — Canva Pro, Adobe, editing app</div></div>
-        <div class="item"><span class="bul" style="background:#e05518"></span><div><strong>Internet & listrik</strong> — kebutuhan operasional harian</div></div>
-        <div class="item"><span class="bul" style="background:#e05518"></span><div><strong>Iklan & promosi</strong> — boost post & paid ads</div></div>
-        <div class="item"><span class="bul" style="background:#e05518"></span><div><strong>Domain & hosting</strong> — website personal / blog</div></div>
-        <div class="item"><span class="bul" style="background:#e05518"></span><div><strong>Pengembangan skill</strong> — kursus & referensi</div></div>
+        <div class="item"><i class="fas fa-minus-circle"></i><div><strong>Kapital Peralatan</strong> — Amortisasi Alat Produksi Pro</div></div>
+        <div class="item"><i class="fas fa-minus-circle"></i><div><strong>Biaya Operasional Software</strong> — Langganan SaaS Kreatif</div></div>
+        <div class="item"><i class="fas fa-minus-circle"></i><div><strong>Utilitas Digital</strong> — Konektivitas & Hosting Website</div></div>
+        <div class="item"><i class="fas fa-minus-circle"></i><div><strong>Investasi Pemasaran</strong> — Paid Ads untuk Akuisisi Audiens</div></div>
+        <div class="item"><i class="fas fa-minus-circle"></i><div><strong>Pengembangan Diri</strong> — Kursus & Sertifikasi Lanjutan</div></div>
       </div>
     </div>
 
-    <div class="card d9" style="background:#f5fbff; border-color:#bcd9f5">
-      <div class="stripe" style="background:linear-gradient(90deg,var(--blue),var(--cyan))"></div>
-      <div class="icon" style="background:#dceeff">&#128200;</div>
+    <div class="card d9">
+      <div class="icon-box"><i class="fas fa-chart-pie"></i></div>
       <p class="lbl">Revenue Breakdown</p>
-      <p class="ttl" style="color:var(--blue)">Estimasi Pendapatan</p>
+      <p class="ttl">Proyeksi Arus Kas</p>
       <div class="rev-grid">
-        <div class="rv" style="background:#fff3ee;border:1px solid #ffd5ba">
-          <div class="rv-num" style="color:var(--orange)">40%</div>
-          <div class="rv-lbl" style="color:#b84e14">Brand Deal & Sponsor</div>
+        <div class="rv">
+          <div class="rv-num">45%</div>
+          <div class="rv-lbl">B2B: Corporate Deals</div>
         </div>
-        <div class="rv" style="background:#eef4ff;border:1px solid #bedaf9">
-          <div class="rv-num" style="color:var(--blue)">25%</div>
-          <div class="rv-lbl" style="color:#1248a0">Produk Digital</div>
+        <div class="rv">
+          <div class="rv-num">25%</div>
+          <div class="rv-lbl">D2C: Digital Products</div>
         </div>
-        <div class="rv" style="background:#e8fbf5;border:1px solid #9de8d0">
-          <div class="rv-num" style="color:#0a8f68">20%</div>
-          <div class="rv-lbl" style="color:#0a8f68">Kelas & Mentoring</div>
+        <div class="rv">
+          <div class="rv-num">20%</div>
+          <div class="rv-lbl">B2C: Services/Mentoring</div>
         </div>
-        <div class="rv" style="background:#fffbee;border:1px solid #f9dfa0">
-          <div class="rv-num" style="color:#b07a08">15%</div>
-          <div class="rv-lbl" style="color:#b07a08">AdSense & Affiliate</div>
+        <div class="rv">
+          <div class="rv-num">10%</div>
+          <div class="rv-lbl">Platform Passive: Ads</div>
         </div>
       </div>
     </div>
@@ -397,7 +429,7 @@
 </div>
 
 <footer>
-  Business Model Canvas &nbsp;·&nbsp; <strong>Konten Kreator & Personal Branding</strong> &nbsp;·&nbsp; Gen-Z Digital Creative Economy
+  Arsitektur Strategis &bull; <strong>Konten Kreator & Personal Branding</strong> &bull; Didesain secara profesional oleh <strong>Danu Yogiana</strong>
 </footer>
 
 </body>
