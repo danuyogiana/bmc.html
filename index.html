@@ -13,6 +13,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #f5efe8;
@@ -20,7 +24,7 @@
       line-height: 1.5;
     }
 
-    /* ========== LAYOUT UTAMA – Seperti Contoh Gambar (Sidebar + Content) ========== */
+    /* ========== LAYOUT UTAMA – Sidebar + Content ========== */
     .dashboard {
       display: flex;
       max-width: 1440px;
@@ -30,7 +34,7 @@
       box-shadow: 0 0 30px rgba(0,0,0,0.03);
     }
 
-    /* ========== SIDEBAR KIRI – Premium Burgundy ========== */
+    /* ========== SIDEBAR KIRI – Premium Burgundy dengan Menu Clickable ========== */
     .sidebar {
       width: 280px;
       background: linear-gradient(165deg, #6B1D2F 0%, #4a0e1f 100%);
@@ -38,7 +42,21 @@
       padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
-      position: relative;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.1);
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #c8a24c;
+      border-radius: 4px;
     }
 
     .sidebar::after {
@@ -75,40 +93,49 @@
       margin-top: 0.3rem;
     }
 
+    /* ========== MENU NAVIGASI – CLICKABLE ========== */
     .nav-menu {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.3rem;
       flex: 1;
     }
 
-    .nav-item {
+    .nav-link {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 0.7rem 0.8rem;
+      padding: 0.75rem 0.8rem;
       border-radius: 0.75rem;
       font-size: 0.85rem;
       font-weight: 500;
-      transition: all 0.2s;
-      cursor: default;
+      transition: all 0.2s ease;
+      cursor: pointer;
       color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
     }
 
-    .nav-item i {
+    .nav-link i {
       width: 24px;
       color: #c8a24c;
       font-size: 1rem;
     }
 
-    .nav-item.active {
+    .nav-link:hover {
       background: rgba(200,162,76,0.15);
       color: white;
+      transform: translateX(4px);
     }
 
-    .nav-item:not(.active):hover {
-      background: rgba(255,255,255,0.05);
+    .nav-link.active {
+      background: rgba(200,162,76,0.2);
       color: white;
+      border-left: 3px solid #c8a24c;
     }
 
     .contact-info {
@@ -136,6 +163,11 @@
       overflow-x: auto;
     }
 
+    /* Section styling untuk scroll target */
+    .section-scroll {
+      scroll-margin-top: 1.5rem;
+    }
+
     /* Header Section */
     .page-header {
       margin-bottom: 2rem;
@@ -161,7 +193,7 @@
       margin-top: 0.3rem;
     }
 
-    /* Executive Summary Card – Seperti "About Us" */
+    /* Executive Summary Card */
     .summary-card {
       background: #faf7f2;
       border-radius: 1rem;
@@ -215,7 +247,7 @@
       gap: 8px;
     }
 
-    /* BMC GRID 3x3 – Premium Cards */
+    /* BMC GRID 3x3 */
     .bmc-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -292,7 +324,7 @@
       display: inline-block;
     }
 
-    /* KPI Row – Seperti "Infographic" */
+    /* KPI Row */
     .kpi-row {
       display: flex;
       flex-wrap: wrap;
@@ -316,7 +348,7 @@
       min-width: 120px;
     }
 
-    /* Roadmap Table – Seperti "Experience" */
+    /* Roadmap Table */
     .roadmap-wrap {
       background: #faf7f2;
       border-radius: 1rem;
@@ -345,7 +377,7 @@
       background: white;
     }
 
-    /* Quote / Validation – Seperti "Our Advantage" */
+    /* Quote Card */
     .quote-card {
       background: #fefaf5;
       border-radius: 1rem;
@@ -396,6 +428,29 @@
       border-top: 1px solid #efe0d0;
     }
 
+    /* Scroll indicator active menu */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #6B1D2F;
+      color: #c8a24c;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 100;
+      transition: all 0.2s;
+    }
+    .scroll-indicator:hover {
+      background: #8b2a42;
+      transform: scale(1.05);
+    }
+
     /* Responsive */
     @media (max-width: 950px) {
       .dashboard {
@@ -403,6 +458,8 @@
       }
       .sidebar {
         width: 100%;
+        height: auto;
+        position: relative;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -412,6 +469,10 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: 0.5rem;
+      }
+      .nav-link {
+        width: auto;
+        padding: 0.5rem 1rem;
       }
       .contact-info {
         margin-top: 0;
@@ -437,24 +498,40 @@
         text-align: left;
         margin-top: 1rem;
       }
+      .nav-menu {
+        flex-direction: column;
+      }
+      .nav-link {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 <div class="dashboard">
   
-  <!-- SIDEBAR KIRI – Gaya Premium seperti contoh gambar -->
+  <!-- SIDEBAR KIRI – Menu Clickable -->
   <div class="sidebar">
     <div class="logo-area">
       <h2>BMC<span> Pro</span></h2>
       <p>Strategic Business Model Canvas</p>
     </div>
     <div class="nav-menu">
-      <div class="nav-item active"><i class="fas fa-chart-line"></i> Business Model</div>
-      <div class="nav-item"><i class="fas fa-user-astronaut"></i> Konten Kreator</div>
-      <div class="nav-item"><i class="fas fa-gem"></i> Personal Branding</div>
-      <div class="nav-item"><i class="fas fa-chart-simple"></i> Key Metrics</div>
-      <div class="nav-item"><i class="fas fa-road"></i> Roadmap 6 Bulan</div>
+      <button class="nav-link" data-target="hero-section">
+        <i class="fas fa-chart-line"></i> Business Model
+      </button>
+      <button class="nav-link" data-target="bmc-section">
+        <i class="fas fa-user-astronaut"></i> Konten Kreator
+      </button>
+      <button class="nav-link" data-target="bmc-section">
+        <i class="fas fa-gem"></i> Personal Branding
+      </button>
+      <button class="nav-link" data-target="kpi-section">
+        <i class="fas fa-chart-simple"></i> Key Metrics
+      </button>
+      <button class="nav-link" data-target="roadmap-section">
+        <i class="fas fa-road"></i> Roadmap 6 Bulan
+      </button>
     </div>
     <div class="contact-info">
       <p><i class="fas fa-globe"></i> www.bmcpro.id</p>
@@ -466,13 +543,13 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
     
-    <!-- Header -->
-    <div class="page-header">
+    <!-- Hero Section (Business Model) -->
+    <div id="hero-section" class="section-scroll page-header">
       <h1>Business Model Canvas – <span>Konten Kreator & Personal Branding</span></h1>
       <div class="subhead">Framework eksekutif premium untuk Gen Z • Dari kreator biasa menjadi aset digital bernilai tinggi</div>
     </div>
 
-    <!-- Executive Summary – Seperti "About Us" -->
+    <!-- Executive Summary -->
     <div class="summary-card">
       <h3><i class="fas fa-chart-line" style="color:#c8a24c;"></i> Executive Summary</h3>
       <p><strong>Personal branding adalah moat kompetitif abad digital.</strong> BMC ini memungkinkan Gen Z memulai dengan modal Rp100.000/bulan dan dalam 6 bulan mencapai pendapatan Rp3–12 juta/bulan melalui diversifikasi 5+ revenue streams. Berbasis data dari 40+ kreator sukses.</p>
@@ -483,10 +560,12 @@
       </div>
     </div>
 
-    <!-- BMC GRID 3x3 -->
-    <div class="section-label">
-      <h2><i class="fas fa-th-large" style="color:#c8a24c;"></i> Business Model Canvas</h2>
-      <span style="font-size:0.7rem; color:#b8a080;">9 Strategic Pillars</span>
+    <!-- BMC GRID 3x3 (Konten Kreator & Personal Branding) -->
+    <div id="bmc-section" class="section-scroll">
+      <div class="section-label">
+        <h2><i class="fas fa-th-large" style="color:#c8a24c;"></i> Business Model Canvas</h2>
+        <span style="font-size:0.7rem; color:#b8a080;">9 Strategic Pillars</span>
+      </div>
     </div>
 
     <div class="bmc-grid">
@@ -518,7 +597,12 @@
       <div class="bmc-card"><div class="card-header"><i class="fas fa-chart-pie"></i><h4>9. Cost Structure</h4></div><div class="card-body"><ul class="bmc-list"><li><strong>Fase pre-revenue (0–3 bln):</strong> Rp100k/bulan</li><li><strong>Fase early revenue (3–6 bln):</strong> ±Rp530k/bulan</li><li>Burn rate ideal < 30% dari pendapatan</li><li>Reinvestasi ke tools produktivitas</li></ul></div></div>
     </div>
 
-    <!-- KPI Row – Seperti "Infographic" -->
+    <!-- KPI Row – Key Metrics -->
+    <div id="kpi-section" class="section-scroll">
+      <div class="section-label">
+        <h2><i class="fas fa-chart-simple" style="color:#c8a24c;"></i> Key Performance Indicators</h2>
+      </div>
+    </div>
     <div class="kpi-row">
       <div class="kpi-pill"><strong>📊 Engagement Rate</strong><br>9% → 14%</div>
       <div class="kpi-pill"><strong>👥 Follower Growth</strong><br>+700 → 2.500/bln</div>
@@ -527,9 +611,11 @@
       <div class="kpi-pill"><strong>❤️ Retention Rate</strong><br>45% → 65%</div>
     </div>
 
-    <!-- Roadmap Table – Seperti "Experience" -->
-    <div class="section-label">
-      <h2><i class="fas fa-calendar-alt" style="color:#c8a24c;"></i> Roadmap Eksekusi 6 Bulan</h2>
+    <!-- Roadmap Table – Roadmap 6 Bulan -->
+    <div id="roadmap-section" class="section-scroll">
+      <div class="section-label">
+        <h2><i class="fas fa-calendar-alt" style="color:#c8a24c;"></i> Roadmap Eksekusi 6 Bulan</h2>
+      </div>
     </div>
     <div class="roadmap-wrap">
       <table class="roadmap-table">
@@ -547,7 +633,7 @@
       </table>
     </div>
 
-    <!-- Quote / Validation – Seperti "Our Advantage" -->
+    <!-- Quote / Validation -->
     <div class="quote-card">
       <i class="fas fa-quote-left quote-icon"></i> 
       <strong>Validasi Praktisi Creator Economy</strong>
@@ -575,7 +661,113 @@
   </div>
 </div>
 
+<!-- Scroll to top button -->
+<div class="scroll-indicator" id="scrollToTopBtn">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
 <script>
+  // ========== MENU CLICKABLE – SMOOTH SCROLL ==========
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = {
+    'hero-section': document.getElementById('hero-section'),
+    'bmc-section': document.getElementById('bmc-section'),
+    'kpi-section': document.getElementById('kpi-section'),
+    'roadmap-section': document.getElementById('roadmap-section')
+  };
+
+  // Function untuk smooth scroll
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  // Add click event ke setiap menu
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('data-target');
+      if (targetId && sections[targetId]) {
+        scrollToSection(targetId);
+      } else if (targetId === 'hero-section') {
+        scrollToSection('hero-section');
+      } else if (targetId === 'bmc-section') {
+        scrollToSection('bmc-section');
+      } else if (targetId === 'kpi-section') {
+        scrollToSection('kpi-section');
+      } else if (targetId === 'roadmap-section') {
+        scrollToSection('roadmap-section');
+      }
+      
+      // Update active class
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Active menu berdasarkan scroll position
+  function updateActiveMenuOnScroll() {
+    const scrollPosition = window.scrollY + 100;
+    
+    const sectionsOrder = [
+      { id: 'hero-section', menuIndex: 0 },
+      { id: 'bmc-section', menuIndex: 1 },
+      { id: 'kpi-section', menuIndex: 3 },
+      { id: 'roadmap-section', menuIndex: 4 }
+    ];
+    
+    let activeFound = false;
+    for (let i = sectionsOrder.length - 1; i >= 0; i--) {
+      const section = document.getElementById(sectionsOrder[i].id);
+      if (section && section.offsetTop <= scrollPosition) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        if (navLinks[sectionsOrder[i].menuIndex]) {
+          navLinks[sectionsOrder[i].menuIndex].classList.add('active');
+        }
+        activeFound = true;
+        break;
+      }
+    }
+    
+    if (!activeFound && navLinks[0]) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      navLinks[0].classList.add('active');
+    }
+  }
+
+  // Scroll to top button
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Show/hide scroll to top button
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.style.display = 'flex';
+    } else {
+      scrollToTopBtn.style.display = 'none';
+    }
+    updateActiveMenuOnScroll();
+  });
+  
+  // Initial hide scroll button
+  scrollToTopBtn.style.display = 'none';
+  
+  // Set active menu awal
+  setTimeout(() => {
+    if (navLinks[0]) navLinks[0].classList.add('active');
+  }, 100);
+
+  // Copy link button
   const btn = document.getElementById('copyLinkBtn');
   if(btn) {
     btn.addEventListener('click', function(e) {
