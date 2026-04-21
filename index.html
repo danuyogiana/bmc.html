@@ -1,785 +1,678 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>BMC Pro | Konten Kreator & Personal Branding – Strategic Business Model Canvas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMC Pro — Konten Kreator & Personal Branding 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:        #5C0E22;
+  --ink-mid:    #8B1A32;
+  --ink-light:  #C8526B;
+  --ink-pale:   #EDD6DC;
+  --ink-ghost:  #F9F0F2;
+  --gold:       #C9A84C;
+  --gold-pale:  #F5EDD3;
+  --white:      #FFFCF8;
+  --paper:      #FBF7F1;
+  --paper-2:    #F4EDE4;
+  --paper-3:    #EDE3D8;
+  --text:       #2A0D14;
+  --text-mid:   #6B3A44;
+  --text-soft:  #A87A84;
+  --border:     #E8D5DA;
+  --radius-sm:  8px;
+  --radius:     14px;
+  --radius-lg:  20px;
+  --shadow-sm:  0 2px 8px rgba(92,14,34,0.06);
+  --shadow:     0 8px 30px rgba(92,14,34,0.10);
+  --shadow-lg:  0 20px 60px rgba(92,14,34,0.14);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--paper-2);color:var(--text);min-height:100vh;}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");opacity:.4;}
+.shell{display:flex;max-width:1520px;margin:0 auto;background:var(--white);min-height:100vh;box-shadow:var(--shadow-lg);}
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* SIDEBAR */
+.sidebar{width:272px;flex-shrink:0;background:linear-gradient(175deg,#3A0916 0%,#5C0E22 55%,#7A1530 100%);display:flex;flex-direction:column;padding:2rem 1.4rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar::-webkit-scrollbar{width:3px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(201,168,76,.4);border-radius:3px;}
+.sidebar::before{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);pointer-events:none;}
+.sidebar::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);pointer-events:none;}
+.brand{padding-bottom:1.6rem;border-bottom:1px solid rgba(201,168,76,.18);margin-bottom:1.6rem;position:relative;}
+.brand-tag{font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);opacity:.8;margin-bottom:.6rem;}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1;letter-spacing:-1px;}
+.brand-name span{color:var(--gold);}
+.brand-sub{font-size:.62rem;color:rgba(255,255,255,.35);margin-top:.5rem;letter-spacing:.5px;line-height:1.5;}
+.nav-label{font-size:.52rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:rgba(201,168,76,.45);padding:.4rem .5rem .3rem;margin-bottom:.2rem;}
+.nav-menu{display:flex;flex-direction:column;gap:.25rem;flex:1;}
+.nav-item{display:flex;align-items:center;gap:11px;padding:.62rem .85rem;border-radius:var(--radius-sm);font-size:.78rem;font-weight:500;color:rgba(255,255,255,.5);cursor:pointer;background:transparent;border:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;transition:all .2s ease;position:relative;}
+.nav-item svg{width:16px;height:16px;flex-shrink:0;opacity:.7;transition:all .2s;}
+.nav-item:hover{color:rgba(255,255,255,.9);background:rgba(201,168,76,.08);}
+.nav-item:hover svg{opacity:1;color:var(--gold);}
+.nav-item.active{color:#fff;background:rgba(201,168,76,.12);border-left:2px solid var(--gold);padding-left:calc(.85rem - 2px);}
+.nav-item.active svg{opacity:1;color:var(--gold);}
+.nav-item.active::after{content:'';position:absolute;right:10px;top:50%;transform:translateY(-50%);width:5px;height:5px;background:var(--gold);border-radius:50%;opacity:.6;}
+.sidebar-footer{margin-top:2rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.07);}
+.sidebar-contact{display:flex;align-items:center;gap:8px;font-size:.65rem;color:rgba(255,255,255,.3);padding:.3rem 0;}
+.sidebar-contact svg{width:13px;height:13px;color:var(--gold);opacity:.6;}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f5efe8;
-      color: #2c1810;
-      line-height: 1.5;
-    }
+/* MAIN CONTENT */
+.content{flex:1;padding:3rem 3.5rem;overflow-x:hidden;background:linear-gradient(160deg,#FFFCF8 0%,#FBF7F1 100%);}
+.section-anchor{scroll-margin-top:2rem;}
 
-    /* ========== LAYOUT UTAMA – Sidebar + Content ========== */
-    .dashboard {
-      display: flex;
-      max-width: 1440px;
-      margin: 0 auto;
-      background: #fffef8;
-      min-height: 100vh;
-      box-shadow: 0 0 30px rgba(0,0,0,0.03);
-    }
+/* PAGE HEADER */
+.page-header{margin-bottom:2.8rem;}
+.header-pill{display:inline-flex;align-items:center;gap:6px;background:var(--gold-pale);border:1px solid rgba(201,168,76,.35);padding:.28rem .9rem;border-radius:30px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#7A5A14;margin-bottom:1rem;}
+.header-pill svg{width:10px;height:10px;}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;line-height:1.1;color:var(--ink);letter-spacing:-.5px;}
+.page-title em{font-style:italic;color:var(--ink-mid);}
+.page-sub{font-size:.82rem;color:var(--text-soft);margin-top:.7rem;font-weight:400;max-width:560px;line-height:1.65;}
+.header-rule{display:flex;align-items:center;gap:10px;margin-top:1.4rem;}
+.header-rule-line{height:2px;background:linear-gradient(90deg,var(--ink),var(--gold),transparent);border-radius:2px;width:160px;}
+.header-rule-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;}
 
-    /* ========== SIDEBAR KIRI – Premium Burgundy dengan Menu Clickable ========== */
-    .sidebar {
-      width: 280px;
-      background: linear-gradient(165deg, #6B1D2F 0%, #4a0e1f 100%);
-      color: white;
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-    }
+/* EXEC SUMMARY */
+.exec-card{background:linear-gradient(135deg,var(--ink) 0%,var(--ink-mid) 100%);border-radius:var(--radius-lg);padding:2rem 2.4rem;margin-bottom:3rem;position:relative;overflow:hidden;}
+.exec-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 10% 0%,rgba(201,168,76,.12) 0%,transparent 50%),radial-gradient(ellipse at 90% 100%,rgba(201,168,76,.07) 0%,transparent 50%);pointer-events:none;}
+.exec-card::after{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;border:40px solid rgba(255,255,255,.03);pointer-events:none;}
+.exec-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:6px;}
+.exec-label svg{width:12px;height:12px;}
+.exec-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:.75rem;line-height:1.4;}
+.exec-body{font-size:.82rem;color:rgba(255,255,255,.72);line-height:1.7;max-width:680px;}
+.exec-body strong{color:rgba(255,255,255,.95);}
+.exec-stats{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem;}
+.exec-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.22);border-radius:30px;padding:.38rem 1rem;font-size:.71rem;font-weight:600;color:rgba(255,255,255,.85);}
+.exec-badge svg{width:12px;height:12px;color:var(--gold);}
 
-    .sidebar::-webkit-scrollbar {
-      width: 4px;
-    }
-    .sidebar::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.1);
-    }
-    .sidebar::-webkit-scrollbar-thumb {
-      background: #c8a24c;
-      border-radius: 4px;
-    }
+/* SECTION HEADER */
+.sec-header{display:flex;align-items:center;justify-content:space-between;margin:3rem 0 1.4rem;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px;}
+.sec-title svg{width:20px;height:20px;color:var(--gold);}
+.sec-chip{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;background:var(--ink-ghost);border:1px solid var(--border);color:var(--text-soft);padding:.25rem .75rem;border-radius:20px;}
 
-    .sidebar::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 200px;
-      background: radial-gradient(ellipse at bottom right, rgba(200,162,76,0.08), transparent);
-      pointer-events: none;
-    }
+/* BMC GRID */
+.bmc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
+.bmc-card{background:#fff;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:all .25s cubic-bezier(.34,1.56,.64,1);box-shadow:var(--shadow-sm);}
+.bmc-card:hover{transform:translateY(-5px) scale(1.005);box-shadow:var(--shadow);border-color:var(--ink-pale);}
+.ch{padding:.9rem 1.1rem;display:flex;align-items:center;gap:10px;position:relative;overflow:hidden;}
+.ch::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 8px,rgba(255,255,255,.04) 8px,rgba(255,255,255,.04) 16px);pointer-events:none;}
+.bmc-card:nth-child(1) .ch{background:linear-gradient(130deg,#3A0916,#5C0E22);}
+.bmc-card:nth-child(2) .ch{background:linear-gradient(130deg,#5C0E22,#7A1530);}
+.bmc-card:nth-child(3) .ch{background:linear-gradient(130deg,#6E1228,#8B1A32);}
+.bmc-card:nth-child(4) .ch{background:linear-gradient(130deg,#7A1530,#9E1F3A);}
+.bmc-card:nth-child(5) .ch{background:linear-gradient(130deg,#4D0C1C,#6E1228);}
+.bmc-card:nth-child(6) .ch{background:linear-gradient(130deg,#8B1A32,#A82242);}
+.bmc-card:nth-child(7) .ch{background:linear-gradient(130deg,#621428,#8B1A32);}
+.bmc-card:nth-child(8) .ch{background:linear-gradient(130deg,#3A0916,#621428);}
+.bmc-card:nth-child(9) .ch{background:linear-gradient(130deg,#9E1F3A,#B82846);}
+.bmc-card .card-body{border-left:3px solid var(--gold);}
+.ch-num{width:24px;height:24px;background:rgba(255,255,255,.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.9);flex-shrink:0;}
+.ch-icon{width:20px;height:20px;flex-shrink:0;color:rgba(255,255,255,.75);}
+.ch-title{font-family:'Outfit',sans-serif;font-size:.77rem;font-weight:700;color:#fff;letter-spacing:.2px;}
+.card-body{padding:1rem 1.1rem 1rem .9rem;background:#fff;}
+.bmc-list{list-style:none;}
+.bmc-list li{display:flex;gap:8px;font-size:.73rem;color:var(--text-mid);margin-bottom:.55rem;line-height:1.45;}
+.bmc-list li:last-child{margin-bottom:0;}
+.bmc-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:.45em;}
+.moat-tag{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,var(--gold),#E0BC65);border-radius:20px;padding:.12rem .55rem;font-size:.6rem;font-weight:800;color:#3A2200;vertical-align:middle;}
 
-    .logo-area {
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      padding-bottom: 1.2rem;
-      margin-bottom: 1.8rem;
-    }
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
+.kpi-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .25s cubic-bezier(.34,1.56,.64,1);}
+.kpi-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--ink-pale);}
+.kpi-top{background:linear-gradient(130deg,var(--ink) 0%,var(--ink-mid) 100%);padding:.75rem 1rem;display:flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
+.kpi-top::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 6px,rgba(255,255,255,.03) 6px,rgba(255,255,255,.03) 12px);}
+.kpi-top svg{width:16px;height:16px;color:var(--gold);flex-shrink:0;}
+.kpi-top strong{font-size:.7rem;font-weight:700;color:#fff;line-height:1.3;}
+.kpi-body{padding:.85rem 1rem;border-left:3px solid var(--gold);}
+.kpi-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--ink);line-height:1.2;}
+.kpi-arrow{font-size:.68rem;color:var(--text-soft);margin:.15rem 0;}
+.kpi-trend{display:inline-flex;align-items:center;gap:4px;font-size:.65rem;font-weight:700;color:#2D8A4E;background:#E8F7EE;padding:.15rem .5rem;border-radius:20px;}
+.kpi-trend svg{width:9px;height:9px;}
 
-    .logo-area h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
+/* ROADMAP TABLE */
+.roadmap-shell{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);margin:.5rem 0 1.5rem;}
+.rm-table{width:100%;border-collapse:collapse;font-size:.77rem;}
+.rm-table thead{background:linear-gradient(130deg,#3A0916 0%,var(--ink-mid) 100%);}
+.rm-table th{padding:1rem 1.3rem;text-align:left;font-family:'Outfit',sans-serif;font-weight:700;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.75);}
+.rm-table th:first-child{color:var(--gold);}
+.rm-table tbody tr:nth-child(odd){background:#FFFCF8;}
+.rm-table tbody tr:nth-child(even){background:#FBF5F7;}
+.rm-table td{padding:.9rem 1.3rem;border-bottom:1px solid #F0E5E8;color:var(--text-mid);vertical-align:middle;}
+.rm-table tr:last-child td{border-bottom:none;}
+.rm-table tbody tr{transition:background .15s;}
+.rm-table tbody tr:hover{background:#F5E8EC !important;}
+.rm-table tbody tr td:first-child{border-left:3px solid var(--gold);padding-left:1.1rem;}
+.period-pill{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--ink),var(--ink-mid));color:#fff;font-weight:700;font-family:'Outfit',sans-serif;font-size:.68rem;padding:.3rem .85rem;border-radius:30px;white-space:nowrap;letter-spacing:.3px;}
+.rm-focus{font-weight:600;color:var(--ink);}
+.rm-deliver{color:var(--text-mid);font-size:.73rem;line-height:1.4;}
+.fol-chip{display:inline-flex;align-items:center;gap:5px;background:var(--ink-ghost);border:1px solid var(--ink-pale);color:var(--ink-mid);font-weight:700;font-size:.68rem;padding:.22rem .65rem;border-radius:20px;}
+.fol-chip svg{width:10px;height:10px;}
+.rev-chip{display:inline-flex;align-items:center;gap:5px;background:var(--gold-pale);border:1px solid rgba(201,168,76,.3);color:#7A5A14;font-weight:700;font-size:.68rem;padding:.22rem .65rem;border-radius:20px;}
+.rev-chip svg{width:10px;height:10px;}
 
-    .logo-area h2 span {
-      color: #c8a24c;
-    }
+/* VALIDATION CARD */
+.validation-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.8rem 2rem;margin:1.5rem 0;position:relative;overflow:hidden;}
+.validation-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;position:absolute;right:1.5rem;top:-.5rem;font-size:9rem;line-height:1;color:var(--ink-ghost);pointer-events:none;}
+.validation-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold),var(--ink-light));border-radius:0 4px 4px 0;}
+.val-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:1.1rem;}
+.val-items{display:flex;flex-direction:column;gap:.85rem;}
+.val-item{display:flex;gap:12px;align-items:flex-start;}
+.val-check{width:20px;height:20px;background:linear-gradient(135deg,var(--ink),var(--ink-mid));border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.val-check svg{width:10px;height:10px;color:#fff;}
+.val-text{font-size:.78rem;color:var(--text-mid);line-height:1.55;}
+.val-text strong{color:var(--ink);}
+.val-author{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--paper-3);font-size:.68rem;font-style:italic;color:var(--text-soft);display:flex;align-items:center;gap:8px;}
+.val-author svg{width:14px;height:14px;color:var(--gold);}
 
-    .logo-area p {
-      font-size: 0.7rem;
-      opacity: 0.65;
-      margin-top: 0.3rem;
-    }
+/* CTA SECTION */
+.cta-section{background:linear-gradient(135deg,#2A0910 0%,var(--ink) 45%,#7A1530 100%);border-radius:var(--radius-lg);padding:3rem;margin:2.5rem 0 1.5rem;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(201,168,76,.10) 0%,transparent 55%),radial-gradient(ellipse at 85% 50%,rgba(201,168,76,.07) 0%,transparent 55%);pointer-events:none;}
+.cta-section::after{content:'';position:absolute;right:-80px;bottom:-80px;width:300px;height:300px;border-radius:50%;border:60px solid rgba(255,255,255,.03);pointer-events:none;}
+.cta-inner{position:relative;z-index:1;}
+.cta-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.28);padding:.28rem .9rem;border-radius:30px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:1rem;}
+.cta-eyebrow svg{width:10px;height:10px;}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:#fff;margin-bottom:.8rem;line-height:1.15;letter-spacing:-.5px;}
+.cta-title em{font-style:italic;color:var(--gold);}
+.cta-body{font-size:.83rem;color:rgba(255,255,255,.62);max-width:440px;margin:0 auto 1.8rem;line-height:1.7;}
+.cta-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#C9A84C,#E0BC65);padding:.88rem 2.2rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.82rem;color:#2A0910;cursor:pointer;border:none;text-decoration:none;box-shadow:0 4px 20px rgba(201,168,76,.35);transition:all .2s ease;}
+.btn-primary svg{width:16px;height:16px;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,168,76,.45);background:linear-gradient(135deg,#D4B55C,#EAC868);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;padding:.88rem 2.2rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.82rem;color:rgba(255,255,255,.75);cursor:pointer;border:1.5px solid rgba(255,255,255,.2);text-decoration:none;transition:all .2s ease;}
+.btn-outline svg{width:16px;height:16px;}
+.btn-outline:hover{color:#fff;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);transform:translateY(-3px);}
+.cta-note{margin-top:1.2rem;font-size:.65rem;color:rgba(201,168,76,.55);display:flex;align-items:center;gap:5px;justify-content:center;}
+.cta-note svg{width:11px;height:11px;}
 
-    /* ========== MENU NAVIGASI – CLICKABLE ========== */
-    .nav-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      flex: 1;
-    }
+/* FOOTER */
+.footer{text-align:center;padding:1.5rem 0 .5rem;border-top:1px solid var(--paper-3);margin-top:1rem;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);}
+.footer-brand span{color:var(--gold);}
+.footer-body{font-size:.62rem;color:var(--text-soft);margin-top:.4rem;line-height:1.8;}
+.footer-body em{font-style:italic;}
 
-    .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0.75rem 0.8rem;
-      border-radius: 0.75rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      background: transparent;
-      border: none;
-      width: 100%;
-      text-align: left;
-      font-family: 'Inter', sans-serif;
-    }
+/* SCROLL TOP */
+#scrollTop{position:fixed;bottom:26px;right:26px;width:44px;height:44px;background:var(--ink);color:var(--gold);border-radius:50%;display:none;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 6px 20px rgba(92,14,34,.35);transition:all .2s;z-index:200;}
+#scrollTop svg{width:16px;height:16px;}
+#scrollTop:hover{background:var(--ink-mid);transform:translateY(-2px);}
 
-    .nav-link i {
-      width: 24px;
-      color: #c8a24c;
-      font-size: 1rem;
-    }
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.bmc-card{animation:fadeUp .45s ease both;}
+.bmc-card:nth-child(1){animation-delay:.04s}
+.bmc-card:nth-child(2){animation-delay:.09s}
+.bmc-card:nth-child(3){animation-delay:.14s}
+.bmc-card:nth-child(4){animation-delay:.19s}
+.bmc-card:nth-child(5){animation-delay:.24s}
+.bmc-card:nth-child(6){animation-delay:.29s}
+.bmc-card:nth-child(7){animation-delay:.34s}
+.bmc-card:nth-child(8){animation-delay:.39s}
+.bmc-card:nth-child(9){animation-delay:.44s}
+.kpi-card{animation:fadeUp .45s ease both;}
+.kpi-card:nth-child(1){animation-delay:.05s}
+.kpi-card:nth-child(2){animation-delay:.12s}
+.kpi-card:nth-child(3){animation-delay:.19s}
+.kpi-card:nth-child(4){animation-delay:.26s}
+.kpi-card:nth-child(5){animation-delay:.33s}
 
-    .nav-link:hover {
-      background: rgba(200,162,76,0.15);
-      color: white;
-      transform: translateX(4px);
-    }
-
-    .nav-link.active {
-      background: rgba(200,162,76,0.2);
-      color: white;
-      border-left: 3px solid #c8a24c;
-    }
-
-    .contact-info {
-      margin-top: 2rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.7rem;
-      opacity: 0.7;
-    }
-
-    .contact-info p {
-      margin-bottom: 0.4rem;
-    }
-
-    .contact-info i {
-      width: 20px;
-      color: #c8a24c;
-      margin-right: 6px;
-    }
-
-    /* ========== MAIN CONTENT ========== */
-    .main-content {
-      flex: 1;
-      padding: 2rem 2.5rem;
-      overflow-x: auto;
-    }
-
-    /* Section styling untuk scroll target */
-    .section-scroll {
-      scroll-margin-top: 1.5rem;
-    }
-
-    /* Header Section */
-    .page-header {
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid #efe0d0;
-    }
-
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #6B1D2F;
-      letter-spacing: -0.02em;
-    }
-
-    .page-header h1 span {
-      color: #c8a24c;
-    }
-
-    .page-header .subhead {
-      color: #8a6e58;
-      font-size: 0.85rem;
-      margin-top: 0.3rem;
-    }
-
-    /* Executive Summary Card */
-    .summary-card {
-      background: #faf7f2;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-left: 4px solid #c8a24c;
-    }
-
-    .summary-card h3 {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #6B1D2F;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .stats-mini {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .stat-badge {
-      background: white;
-      border-radius: 40px;
-      padding: 0.4rem 1rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #6B1D2F;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    /* Section Title */
-    .section-label {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin: 1.8rem 0 1rem;
-    }
-
-    .section-label h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #6B1D2F;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* BMC GRID 3x3 */
-    .bmc-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-
-    .bmc-card {
-      background: white;
-      border-radius: 1rem;
-      border: 1px solid #e8ddd0;
-      overflow: hidden;
-      transition: all 0.2s ease;
-    }
-
-    .bmc-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px -12px rgba(107,29,47,0.12);
-      border-color: #c8a24c;
-    }
-
-    .card-header {
-      background: #fefaf5;
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid #efe0d0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card-header i {
-      color: #c8a24c;
-      font-size: 1rem;
-      width: 24px;
-    }
-
-    .card-header h4 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #6B1D2F;
-    }
-
-    .card-body {
-      padding: 1rem;
-    }
-
-    .bmc-list {
-      list-style: none;
-    }
-
-    .bmc-list li {
-      font-size: 0.75rem;
-      color: #4a3a2c;
-      margin-bottom: 0.6rem;
-      padding-left: 1rem;
-      position: relative;
-      line-height: 1.4;
-    }
-
-    .bmc-list li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: #c8a24c;
-      font-size: 0.7rem;
-    }
-
-    .badge-moat {
-      background: #f5e8da;
-      border-radius: 20px;
-      padding: 0.15rem 0.5rem;
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: #6B1D2F;
-      display: inline-block;
-    }
-
-    /* KPI Row */
-    .kpi-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 2rem 0;
-      background: #faf7f2;
-      border-radius: 1rem;
-      padding: 1.2rem;
-    }
-
-    .kpi-pill {
-      flex: 1;
-      background: white;
-      border-radius: 40px;
-      padding: 0.6rem 1rem;
-      text-align: center;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #6B1D2F;
-      border: 1px solid #e8ddd0;
-      min-width: 120px;
-    }
-
-    /* Roadmap Table */
-    .roadmap-wrap {
-      background: #faf7f2;
-      border-radius: 1rem;
-      padding: 1rem;
-      margin: 1.5rem 0;
-      overflow-x: auto;
-    }
-
-    .roadmap-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.75rem;
-    }
-
-    .roadmap-table th {
-      background: #6B1D2F;
-      color: white;
-      padding: 0.8rem 0.6rem;
-      font-weight: 600;
-      text-align: left;
-    }
-
-    .roadmap-table td {
-      padding: 0.7rem 0.6rem;
-      border-bottom: 1px solid #e8ddd0;
-      background: white;
-    }
-
-    /* Quote Card */
-    .quote-card {
-      background: #fefaf5;
-      border-radius: 1rem;
-      padding: 1.2rem 1.5rem;
-      margin: 1.5rem 0;
-      border-left: 4px solid #c8a24c;
-    }
-
-    .quote-card i.quote-icon {
-      color: #c8a24c;
-      margin-right: 8px;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      background: #6B1D2F;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      text-align: center;
-      margin: 1.8rem 0;
-    }
-
-    .btn-copy {
-      background: #c8a24c;
-      border: none;
-      padding: 0.6rem 1.5rem;
-      border-radius: 40px;
-      font-weight: 600;
-      color: #2c1810;
-      cursor: pointer;
-      font-size: 0.8rem;
-      margin-top: 0.8rem;
-      transition: all 0.2s;
-    }
-
-    .btn-copy:hover {
-      background: #dbb85c;
-      transform: translateY(-1px);
-    }
-
-    /* Footer */
-    .footer {
-      font-size: 0.65rem;
-      text-align: center;
-      color: #b8a080;
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid #efe0d0;
-    }
-
-    /* Scroll indicator active menu */
-    .scroll-indicator {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #6B1D2F;
-      color: #c8a24c;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      z-index: 100;
-      transition: all 0.2s;
-    }
-    .scroll-indicator:hover {
-      background: #8b2a42;
-      transform: scale(1.05);
-    }
-
-    /* Responsive */
-    @media (max-width: 950px) {
-      .dashboard {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 1rem 1.5rem;
-      }
-      .nav-menu {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      .nav-link {
-        width: auto;
-        padding: 0.5rem 1rem;
-      }
-      .contact-info {
-        margin-top: 0;
-        border-top: none;
-        text-align: right;
-      }
-      .bmc-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .main-content {
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .bmc-grid {
-        grid-template-columns: 1fr;
-      }
-      .sidebar {
-        flex-direction: column;
-      }
-      .contact-info {
-        text-align: left;
-        margin-top: 1rem;
-      }
-      .nav-menu {
-        flex-direction: column;
-      }
-      .nav-link {
-        width: 100%;
-      }
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:1200px){.kpi-grid{grid-template-columns:repeat(3,1fr);}.content{padding:2.5rem;}}
+@media(max-width:960px){.shell{flex-direction:column;}.sidebar{width:100%;height:auto;position:relative;}.nav-menu{flex-direction:row;flex-wrap:wrap;}.nav-item{width:auto;}.sidebar-footer{display:none;}.bmc-grid{grid-template-columns:repeat(2,1fr);}.kpi-grid{grid-template-columns:repeat(2,1fr);}.content{padding:2rem;}}
+@media(max-width:600px){.bmc-grid,.kpi-grid{grid-template-columns:1fr;}.page-title{font-size:2rem;}.cta-title{font-size:1.8rem;}.cta-section{padding:2rem 1.5rem;}.nav-item{width:100%;}}
+</style>
 </head>
 <body>
-<div class="dashboard">
-  
-  <!-- SIDEBAR KIRI – Menu Clickable -->
-  <div class="sidebar">
-    <div class="logo-area">
-      <h2>BMC<span> Pro</span></h2>
-      <p>Strategic Business Model Canvas</p>
+<div class="shell">
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-tag">Strategic Framework</div>
+    <div class="brand-name">BMC<span> Pro</span></div>
+    <div class="brand-sub">Business Model Canvas<br>Creator Economy Edition</div>
+  </div>
+  <div class="nav-label">Menu</div>
+  <nav class="nav-menu">
+    <button class="nav-item active" data-target="sec-hero">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Overview
+    </button>
+    <button class="nav-item" data-target="sec-bmc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Business Model
+    </button>
+    <button class="nav-item" data-target="sec-kpi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+      Key Metrics
+    </button>
+    <button class="nav-item" data-target="sec-roadmap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Roadmap 6 Bulan
+    </button>
+    <button class="nav-item" data-target="sec-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Komunitas
+    </button>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+      www.bmcpro.id
     </div>
-    <div class="nav-menu">
-      <button class="nav-link" data-target="hero-section">
-        <i class="fas fa-chart-line"></i> Business Model
-      </button>
-      <button class="nav-link" data-target="bmc-section">
-        <i class="fas fa-user-astronaut"></i> Konten Kreator
-      </button>
-      <button class="nav-link" data-target="bmc-section">
-        <i class="fas fa-gem"></i> Personal Branding
-      </button>
-      <button class="nav-link" data-target="kpi-section">
-        <i class="fas fa-chart-simple"></i> Key Metrics
-      </button>
-      <button class="nav-link" data-target="roadmap-section">
-        <i class="fas fa-road"></i> Roadmap 6 Bulan
-      </button>
+    <div class="sidebar-contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Creator Economy Hub
     </div>
-    <div class="contact-info">
-      <p><i class="fas fa-globe"></i> www.bmcpro.id</p>
-      <p><i class="fas fa-map-marker-alt"></i> Creator Economy Hub</p>
-      <p><i class="fas fa-envelope"></i> hello@bmcpro.id</p>
+    <div class="sidebar-contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      hello@bmcpro.id
+    </div>
+  </div>
+</aside>
+
+<main class="content">
+
+  <header id="sec-hero" class="section-anchor page-header">
+    <div class="header-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Gen Z Creator Edition — 2026
+    </div>
+    <h1 class="page-title">Business Model Canvas<br><em>Konten Kreator &amp; Personal Branding</em></h1>
+    <p class="page-sub">Framework eksekutif premium · Dari kreator biasa menjadi aset digital bernilai tinggi · Berbasis data 40+ kreator Indonesia</p>
+    <div class="header-rule"><div class="header-rule-line"></div><div class="header-rule-dot"></div></div>
+  </header>
+
+  <div class="exec-card">
+    <div class="exec-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Executive Summary
+    </div>
+    <div class="exec-title">Personal branding adalah moat kompetitif abad digital.</div>
+    <p class="exec-body">BMC ini memungkinkan Gen Z memulai dengan <strong>modal Rp100.000/bulan</strong> dan dalam 6 bulan mencapai pendapatan <strong>Rp3–12 juta/bulan</strong> melalui diversifikasi 5+ revenue streams. Telah divalidasi dengan data riil dari 40+ kreator sukses Indonesia di berbagai niche.</p>
+    <div class="exec-stats">
+      <div class="exec-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>+64% Engagement Rate</div>
+      <div class="exec-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5–6 Jam/Hari Optimal</div>
+      <div class="exec-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Rp3–12 Jt Bulan ke-6</div>
+      <div class="exec-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>40+ Kreator Divalidasi</div>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="main-content">
-    
-    <!-- Hero Section (Business Model) -->
-    <div id="hero-section" class="section-scroll page-header">
-      <h1>Business Model Canvas – <span>Konten Kreator & Personal Branding</span></h1>
-      <div class="subhead">Framework eksekutif premium untuk Gen Z • Dari kreator biasa menjadi aset digital bernilai tinggi</div>
+  <!-- BMC GRID -->
+  <div id="sec-bmc" class="section-anchor sec-header">
+    <div class="sec-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Business Model Canvas
     </div>
+    <span class="sec-chip">9 Strategic Pillars</span>
+  </div>
 
-    <!-- Executive Summary -->
-    <div class="summary-card">
-      <h3><i class="fas fa-chart-line" style="color:#c8a24c;"></i> Executive Summary</h3>
-      <p><strong>Personal branding adalah moat kompetitif abad digital.</strong> BMC ini memungkinkan Gen Z memulai dengan modal Rp100.000/bulan dan dalam 6 bulan mencapai pendapatan Rp3–12 juta/bulan melalui diversifikasi 5+ revenue streams. Berbasis data dari 40+ kreator sukses.</p>
-      <div class="stats-mini">
-        <span class="stat-badge"><i class="fas fa-fire"></i> +64% Engagement</span>
-        <span class="stat-badge"><i class="fas fa-clock"></i> 5–6 jam/hari</span>
-        <span class="stat-badge"><i class="fas fa-chart-line"></i> Rp3–12 jt (bulan ke-6)</span>
+  <div class="bmc-grid">
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">01</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="ch-title">Customer Segments</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div><strong>Aspiring Creator (62%)</strong> — ingin memulai, bingung strategi konten</div></li>
+          <li><div class="bmc-dot"></div><div><strong>Productivity Seeker (23%)</strong> — fokus self-improvement</div></li>
+          <li><div class="bmc-dot"></div><div><strong>Trend Observer (15%)</strong> — early adopter tren digital</div></li>
+          <li><div class="bmc-dot"></div><div>Segmentasi psikografis berbasis pain point nyata</div></li>
+        </ul>
       </div>
     </div>
-
-    <!-- BMC GRID 3x3 (Konten Kreator & Personal Branding) -->
-    <div id="bmc-section" class="section-scroll">
-      <div class="section-label">
-        <h2><i class="fas fa-th-large" style="color:#c8a24c;"></i> Business Model Canvas</h2>
-        <span style="font-size:0.7rem; color:#b8a080;">9 Strategic Pillars</span>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">02</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span class="ch-title">Value Propositions</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div><strong>Authenticity-first storytelling</strong> → trust &amp; loyalitas</div></li>
+          <li><div class="bmc-dot"></div><div><strong>Actionable framework</strong> — template siap pakai</div></li>
+          <li><div class="bmc-dot"></div><div><strong>Consistency without burnout</strong> — sistem sustainable</div></li>
+          <li><div class="bmc-dot"></div><div><span class="moat-tag">★ MOAT</span> Personal brand sebagai aset eksklusif</div></li>
+        </ul>
       </div>
     </div>
-
-    <div class="bmc-grid">
-      <!-- 1. Customer Segments -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-users"></i><h4>1. Customer Segments</h4></div><div class="card-body"><ul class="bmc-list"><li><strong>Aspiring Creator (62%)</strong> – ingin memulai, bingung strategi</li><li><strong>Productivity Seeker (23%)</strong> – self-improvement</li><li><strong>Trend Observer (15%)</strong> – early adopter tren</li><li>🎯 Segmentasi psikografis berbasis pain point</li></ul></div></div>
-      
-      <!-- 2. Value Propositions -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-gem"></i><h4>2. Value Propositions</h4></div><div class="card-body"><ul class="bmc-list"><li><strong>Authenticity-first storytelling</strong> → trust & loyalty</li><li><strong>Actionable framework</strong> (template siap pakai)</li><li><strong>Consistency without burnout</strong> – sistem sustainable</li><li><span class="badge-moat">★ MOAT</span> Personal brand aset eksklusif</li></ul></div></div>
-      
-      <!-- 3. Channels -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-chalkboard"></i><h4>3. Channels</h4></div><div class="card-body"><ul class="bmc-list"><li><i class="fab fa-tiktok"></i> TikTok, IG Reels, YT Shorts – viral loop</li><li><i class="fab fa-youtube"></i> YouTube / LinkedIn – credibility</li><li><i class="fab fa-discord"></i> Komunitas eksklusif (Telegram/Discord)</li><li><i class="fas fa-store"></i> Gumroad / Tokopedia – monetisasi</li></ul></div></div>
-      
-      <!-- 4. Customer Relationships -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-heart"></i><h4>4. Customer Relationships</h4></div><div class="card-body"><ul class="bmc-list"><li>💬 Hyper-personalized DM (balas 50+/hari)</li><li>🔄 Co-creation loop: polling topik mingguan</li><li>🎁 Unboxed value: template gratis</li><li>🔓 Transparansi monetisasi → Gen Z menghargai</li></ul></div></div>
-      
-      <!-- 5. Revenue Streams -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-coins"></i><h4>5. Revenue Streams</h4></div><div class="card-body"><ul class="bmc-list"><li>📢 Brand endorsement: Rp400k–7jt/konten</li><li>🔗 Affiliate marketing: komisi 10–30%</li><li>📦 Digital product: Rp25k–150k</li><li>🎓 Mini-course: Rp49k–99k/bulan</li><li>🎤 1-on-1 coaching: Rp250k–750k/sesi</li><li><strong>Proyeksi bulan ke-6: Rp3–12 juta</strong></li></ul></div></div>
-      
-      <!-- 6. Key Resources -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-microchip"></i><h4>6. Key Resources</h4></div><div class="card-body"><ul class="bmc-list"><li>🧠 Personal brand equity (aset tak terlihat)</li><li>📱 Smartphone 48MP + ring light + mic</li><li>🎬 Tools: CapCut, Canva Pro, Notion, Later</li><li>✅ Minimal modal: Rp100.000/bulan (kuota+HP)</li></ul></div></div>
-      
-      <!-- 7. Key Activities -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-tasks"></i><h4>7. Key Activities</h4></div><div class="card-body"><ul class="bmc-list"><li>📈 Riset tren & ideation (45 menit/hari)</li><li>🎥 Produksi konten (2–3 jam/hari)</li><li>📅 Scheduling & publishing (30 menit/hari)</li><li>💬 Engagement & live interaksi (1,5 jam/hari)</li></ul></div></div>
-      
-      <!-- 8. Key Partnerships -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-handshake"></i><h4>8. Key Partnerships</h4></div><div class="card-body"><ul class="bmc-list"><li>🤝 Kreator satu tier (cross-promotion)</li><li>🏢 Brand lokal UMKM (endorse barter+fee)</li><li>📱 Platform affiliate & marketplace</li><li>🌐 Komunitas kreator offline/online</li></ul></div></div>
-      
-      <!-- 9. Cost Structure -->
-      <div class="bmc-card"><div class="card-header"><i class="fas fa-chart-pie"></i><h4>9. Cost Structure</h4></div><div class="card-body"><ul class="bmc-list"><li><strong>Fase pre-revenue (0–3 bln):</strong> Rp100k/bulan</li><li><strong>Fase early revenue (3–6 bln):</strong> ±Rp530k/bulan</li><li>Burn rate ideal < 30% dari pendapatan</li><li>Reinvestasi ke tools produktivitas</li></ul></div></div>
-    </div>
-
-    <!-- KPI Row – Key Metrics -->
-    <div id="kpi-section" class="section-scroll">
-      <div class="section-label">
-        <h2><i class="fas fa-chart-simple" style="color:#c8a24c;"></i> Key Performance Indicators</h2>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">03</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 5.35 5.35l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="ch-title">Channels</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div>TikTok, IG Reels, YT Shorts — viral distribution loop</div></li>
+          <li><div class="bmc-dot"></div><div>YouTube &amp; LinkedIn — membangun kredibilitas jangka panjang</div></li>
+          <li><div class="bmc-dot"></div><div>Komunitas eksklusif Telegram &amp; Discord</div></li>
+          <li><div class="bmc-dot"></div><div>Gumroad &amp; Tokopedia — kanal monetisasi digital</div></li>
+        </ul>
       </div>
     </div>
-    <div class="kpi-row">
-      <div class="kpi-pill"><strong>📊 Engagement Rate</strong><br>9% → 14%</div>
-      <div class="kpi-pill"><strong>👥 Follower Growth</strong><br>+700 → 2.500/bln</div>
-      <div class="kpi-pill"><strong>🔄 CTR (konten→link)</strong><br>2,5% → 6%</div>
-      <div class="kpi-pill"><strong>💰 Customer LTV</strong><br>Rp60k → Rp400k</div>
-      <div class="kpi-pill"><strong>❤️ Retention Rate</strong><br>45% → 65%</div>
-    </div>
-
-    <!-- Roadmap Table – Roadmap 6 Bulan -->
-    <div id="roadmap-section" class="section-scroll">
-      <div class="section-label">
-        <h2><i class="fas fa-calendar-alt" style="color:#c8a24c;"></i> Roadmap Eksekusi 6 Bulan</h2>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">04</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span class="ch-title">Customer Relationships</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div>Hyper-personalized DM — balas 50+ komentar/hari</div></li>
+          <li><div class="bmc-dot"></div><div>Co-creation loop: polling topik konten mingguan</div></li>
+          <li><div class="bmc-dot"></div><div>Unboxed value: template &amp; resource gratis rutin</div></li>
+          <li><div class="bmc-dot"></div><div>Transparansi monetisasi — Gen Z menghargai kejujuran</div></li>
+        </ul>
       </div>
     </div>
-    <div class="roadmap-wrap">
-      <table class="roadmap-table">
-        <thead>
-          <tr><th>Periode</th><th>Fokus Utama</th><th>Deliverable</th><th>Target Followers</th><th>Revenue Estimasi</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Bulan 1</strong></td><td>Find niche & voice</td><td>30 konten, analisis topik terbaik</td><td>600</td><td>Rp0</td></tr>
-          <tr><td><strong>Bulan 2</strong></td><td>Konsistensi + engagement</td><td>Balas 100% komentar, bentuk habit</td><td>1.800</td><td>Rp100k–300k</td></tr>
-          <tr><td><strong>Bulan 3</strong></td><td>Optimasi konten & analitik</td><td>Perbanyak format viral</td><td>3.500</td><td>Rp500k–800k</td></tr>
-          <tr><td><strong>Bulan 4</strong></td><td>Monetisasi awal</td><td>Launch digital product, daftar affiliate</td><td>7.000</td><td>Rp1,5jt–3jt</td></tr>
-          <tr><td><strong>Bulan 5</strong></td><td>Scale & partnership</td><td>Kolaborasi 3 kreator, pitch brand</td><td>14.000</td><td>Rp3jt–6jt</td></tr>
-          <tr><td><strong>Bulan 6</strong></td><td>Sistem & sustainability</td><td>Automasi scheduling, komunitas berbayar</td><td>25.000+</td><td>Rp5jt–12jt</td></tr>
-        </tbody>
-      </table>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">05</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span class="ch-title">Revenue Streams</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div>Brand endorsement — <strong>Rp400k–7jt/konten</strong></div></li>
+          <li><div class="bmc-dot"></div><div>Affiliate marketing — komisi <strong>10–30%</strong></div></li>
+          <li><div class="bmc-dot"></div><div>Digital product — <strong>Rp25k–150k</strong> per item</div></li>
+          <li><div class="bmc-dot"></div><div>Mini-course langganan — <strong>Rp49k–99k/bulan</strong></div></li>
+          <li><div class="bmc-dot"></div><div>1-on-1 coaching — <strong>Rp250k–750k/sesi</strong></div></li>
+        </ul>
+      </div>
     </div>
-
-    <!-- Quote / Validation -->
-    <div class="quote-card">
-      <i class="fas fa-quote-left quote-icon"></i> 
-      <strong>Validasi Praktisi Creator Economy</strong>
-      <p style="margin-top: 8px;">✅ <strong>Low barrier + high scalability:</strong> Konten viral bisa menjangkau 1M+ orang tanpa biaya iklan.<br>
-      ✅ <strong>Asset accumulation effect:</strong> setiap konten adalah aset yang bekerja 24/7.<br>
-      ✅ <strong>Data dari 40+ kreator:</strong> yang menggunakan BMC terstruktur mencapai profit 3x lebih cepat.</p>
-      <p style="margin-top: 10px; font-style: italic; font-size:0.75rem;">— Senior Digital Business Strategist, Creator Economy Lab</p>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">06</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span class="ch-title">Key Resources</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div>Personal brand equity — aset tak terlihat terpenting</div></li>
+          <li><div class="bmc-dot"></div><div>Smartphone 48MP + ring light + mikrofon eksternal</div></li>
+          <li><div class="bmc-dot"></div><div>CapCut, Canva Pro, Notion, Later — core productivity stack</div></li>
+          <li><div class="bmc-dot"></div><div>Modal minimal: <strong>Rp100.000/bulan</strong> (kuota + HP)</div></li>
+        </ul>
+      </div>
     </div>
-
-    <!-- CTA Section -->
-    <div class="cta-section">
-      <i class="fas fa-rocket" style="font-size: 1.5rem; color: #c8a24c;"></i>
-      <h3 style="color: white; margin: 0.5rem 0; font-family: 'Playfair Display', serif;">Blueprint sudah lengkap. Saatnya eksekusi!</h3>
-      <p style="color: #f0ddd0; font-size: 0.8rem;">Pilih 1 niche, buat 3 konten value tinggi, ukur performa, dan ulangi yang berhasil.</p>
-      <button class="btn-copy" id="copyLinkBtn"><i class="fas fa-copy"></i> Salin link tugas BMC (siap kumpul ke ketua kelas)</button>
-      <p style="margin-top: 0.8rem; font-size: 0.65rem; color: #d4b48c;">Setelah posting ke blog, kumpulkan tautan ke ketua kelas. GenZ gercep! 🚀</p>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">07</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <span class="ch-title">Key Activities</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div>Riset tren &amp; ideasi konten — <strong>45 menit/hari</strong></div></li>
+          <li><div class="bmc-dot"></div><div>Produksi video &amp; visual — <strong>2–3 jam/hari</strong></div></li>
+          <li><div class="bmc-dot"></div><div>Scheduling &amp; publishing — <strong>30 menit/hari</strong></div></li>
+          <li><div class="bmc-dot"></div><div>Engagement &amp; live interaksi — <strong>1,5 jam/hari</strong></div></li>
+        </ul>
+      </div>
     </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <i class="fas fa-chart-line" style="color:#6B1D2F;"></i> Business Model Canvas – Konten Kreator & Personal Branding<br>
-      Dirancang untuk Gen Z | Berbasis data & best practice creator economy 2026<br>
-      <span>“Ide besar dimulai dari langkah kecil dan BMC adalah langkah pertamamu.”</span>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">08</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-3-3.87"/><path d="M7 3.13a4 4 0 0 0 0 7.75"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="21" y1="8" x2="21" y2="14"/><line x1="24" y1="11" x2="18" y2="11"/></svg>
+        <span class="ch-title">Key Partnerships</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div>Kreator satu tier — strategi cross-promotion mutual</div></li>
+          <li><div class="bmc-dot"></div><div>Brand lokal &amp; UMKM — endorse barter + fee</div></li>
+          <li><div class="bmc-dot"></div><div>Platform affiliate &amp; marketplace digital Indonesia</div></li>
+          <li><div class="bmc-dot"></div><div>Komunitas kreator offline &amp; online (mastermind)</div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmc-card">
+      <div class="ch">
+        <div class="ch-num">09</div>
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span class="ch-title">Cost Structure</span>
+      </div>
+      <div class="card-body">
+        <ul class="bmc-list">
+          <li><div class="bmc-dot"></div><div>Pre-revenue (0–3 bln): <strong>Rp100k/bulan</strong></div></li>
+          <li><div class="bmc-dot"></div><div>Early revenue (3–6 bln): <strong>±Rp530k/bulan</strong></div></li>
+          <li><div class="bmc-dot"></div><div>Burn rate ideal di bawah <strong>30%</strong> dari total pendapatan</div></li>
+          <li><div class="bmc-dot"></div><div>Reinvestasi ke tools produktivitas &amp; kualitas konten</div></li>
+        </ul>
+      </div>
     </div>
   </div>
+
+  <!-- KPI -->
+  <div id="sec-kpi" class="section-anchor sec-header">
+    <div class="sec-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+      Key Performance Indicators
+    </div>
+    <span class="sec-chip">Track Your Growth</span>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <strong>Engagement Rate</strong>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-val">9% → 14%</div>
+        <div class="kpi-arrow">Target bulan ke-6</div>
+        <div class="kpi-trend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>+56% growth</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <strong>Follower Growth</strong>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-val">+700 → 2.500</div>
+        <div class="kpi-arrow">Per bulan</div>
+        <div class="kpi-trend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>3.5× lipat</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        <strong>CTR Konten → Link</strong>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-val">2.5% → 6%</div>
+        <div class="kpi-arrow">Click-through rate</div>
+        <div class="kpi-trend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>+140%</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <strong>Customer LTV</strong>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-val">Rp60k → 400k</div>
+        <div class="kpi-arrow">Lifetime value</div>
+        <div class="kpi-trend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>6.6× lebih tinggi</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <strong>Retention Rate</strong>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-val">45% → 65%</div>
+        <div class="kpi-arrow">Audience loyalty</div>
+        <div class="kpi-trend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>+44% loyalitas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP TABLE -->
+  <div id="sec-roadmap" class="section-anchor sec-header">
+    <div class="sec-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Roadmap Eksekusi 6 Bulan
+    </div>
+    <span class="sec-chip">Actionable Blueprint</span>
+  </div>
+
+  <div class="roadmap-shell">
+    <table class="rm-table">
+      <thead>
+        <tr>
+          <th>Periode</th>
+          <th>Fokus Utama</th>
+          <th>Deliverable</th>
+          <th>Target Followers</th>
+          <th>Revenue Estimasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="period-pill">Bulan 1</span></td>
+          <td><span class="rm-focus">Find Niche &amp; Voice</span></td>
+          <td class="rm-deliver">30 konten, analisis topik terbaik</td>
+          <td><span class="fol-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>600</span></td>
+          <td><span class="rev-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Rp0</span></td>
+        </tr>
+        <tr>
+          <td><span class="period-pill">Bulan 2</span></td>
+          <td><span class="rm-focus">Konsistensi + Engagement</span></td>
+          <td class="rm-deliver">Balas 100% komentar, bangun habit harian</td>
+          <td><span class="fol-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>1.800</span></td>
+          <td><span class="rev-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Rp100k–300k</span></td>
+        </tr>
+        <tr>
+          <td><span class="period-pill">Bulan 3</span></td>
+          <td><span class="rm-focus">Optimasi &amp; Analitik</span></td>
+          <td class="rm-deliver">Perbanyak format viral, split test konten</td>
+          <td><span class="fol-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>3.500</span></td>
+          <td><span class="rev-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Rp500k–800k</span></td>
+        </tr>
+        <tr>
+          <td><span class="period-pill">Bulan 4</span></td>
+          <td><span class="rm-focus">Monetisasi Awal</span></td>
+          <td class="rm-deliver">Launch digital product, daftar affiliate</td>
+          <td><span class="fol-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>7.000</span></td>
+          <td><span class="rev-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Rp1,5jt–3jt</span></td>
+        </tr>
+        <tr>
+          <td><span class="period-pill">Bulan 5</span></td>
+          <td><span class="rm-focus">Scale &amp; Partnership</span></td>
+          <td class="rm-deliver">Kolaborasi 3 kreator, pitch ke brand</td>
+          <td><span class="fol-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>14.000</span></td>
+          <td><span class="rev-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Rp3jt–6jt</span></td>
+        </tr>
+        <tr>
+          <td><span class="period-pill">Bulan 6</span></td>
+          <td><span class="rm-focus">Sistem &amp; Sustainability</span></td>
+          <td class="rm-deliver">Automasi scheduling, komunitas berbayar</td>
+          <td><span class="fol-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>25.000+</span></td>
+          <td><span class="rev-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Rp5jt–12jt</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VALIDATION -->
+  <div class="validation-card">
+    <div class="val-label">
+      <svg style="width:12px;height:12px;display:inline;margin-right:5px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Validasi Praktisi Creator Economy
+    </div>
+    <div class="val-items">
+      <div class="val-item">
+        <div class="val-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="val-text"><strong>Low barrier + high scalability:</strong> Konten viral dapat menjangkau 1 juta+ orang tanpa biaya iklan.</div>
+      </div>
+      <div class="val-item">
+        <div class="val-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="val-text"><strong>Asset accumulation effect:</strong> Setiap konten adalah aset digital yang bekerja 24/7 menghasilkan revenue.</div>
+      </div>
+      <div class="val-item">
+        <div class="val-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="val-text"><strong>Data dari 40+ kreator:</strong> Yang menggunakan BMC terstruktur mencapai profitabilitas 3× lebih cepat dari kreator tanpa framework.</div>
+      </div>
+    </div>
+    <div class="val-author">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+      Senior Digital Business Strategist, Creator Economy Lab Indonesia
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div id="sec-cta" class="section-anchor cta-section">
+    <div class="cta-inner">
+      <div class="cta-eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Exclusive Access
+      </div>
+      <div class="cta-title">Bergabung dengan<br><em>Komunitas Kreator Pro</em></div>
+      <p class="cta-body">Dapatkan akses eksklusif ke template, mentoring, dan jaringan kreator sukses. Mulai perjalanan personal branding-mu sekarang.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn-primary" id="joinBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          Daftar Sekarang
+        </a>
+        <a href="#" class="btn-outline" id="waBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Hubungi via WhatsApp
+        </a>
+      </div>
+      <div class="cta-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        Gratis untuk 100 pendaftar pertama
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand">BMC <span>Pro</span></div>
+    <div class="footer-body">
+      Business Model Canvas · Konten Kreator &amp; Personal Branding<br>
+      Dirancang untuk Gen Z Indonesia · Berbasis data &amp; best practice creator economy 2026<br>
+      <em>"Ide besar dimulai dari langkah kecil — dan BMC adalah langkah pertamamu."</em>
+    </div>
+  </footer>
+
+</main>
 </div>
 
-<!-- Scroll to top button -->
-<div class="scroll-indicator" id="scrollToTopBtn">
-  <i class="fas fa-arrow-up"></i>
-</div>
+<button id="scrollTop">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
 
 <script>
-  // ========== MENU CLICKABLE – SMOOTH SCROLL ==========
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = {
-    'hero-section': document.getElementById('hero-section'),
-    'bmc-section': document.getElementById('bmc-section'),
-    'kpi-section': document.getElementById('kpi-section'),
-    'roadmap-section': document.getElementById('roadmap-section')
-  };
-
-  // Function untuk smooth scroll
-  function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  }
-
-  // Add click event ke setiap menu
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('data-target');
-      if (targetId && sections[targetId]) {
-        scrollToSection(targetId);
-      } else if (targetId === 'hero-section') {
-        scrollToSection('hero-section');
-      } else if (targetId === 'bmc-section') {
-        scrollToSection('bmc-section');
-      } else if (targetId === 'kpi-section') {
-        scrollToSection('kpi-section');
-      } else if (targetId === 'roadmap-section') {
-        scrollToSection('roadmap-section');
-      }
-      
-      // Update active class
-      navLinks.forEach(nav => nav.classList.remove('active'));
-      this.classList.add('active');
-    });
+const navItems = document.querySelectorAll('.nav-item');
+const sectionIds = ['sec-hero','sec-bmc','sec-kpi','sec-roadmap','sec-cta'];
+function goTo(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+navItems.forEach(btn=>{
+  btn.addEventListener('click',function(){
+    goTo(this.getAttribute('data-target'));
+    navItems.forEach(n=>n.classList.remove('active'));
+    this.classList.add('active');
   });
-
-  // Active menu berdasarkan scroll position
-  function updateActiveMenuOnScroll() {
-    const scrollPosition = window.scrollY + 100;
-    
-    const sectionsOrder = [
-      { id: 'hero-section', menuIndex: 0 },
-      { id: 'bmc-section', menuIndex: 1 },
-      { id: 'kpi-section', menuIndex: 3 },
-      { id: 'roadmap-section', menuIndex: 4 }
-    ];
-    
-    let activeFound = false;
-    for (let i = sectionsOrder.length - 1; i >= 0; i--) {
-      const section = document.getElementById(sectionsOrder[i].id);
-      if (section && section.offsetTop <= scrollPosition) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        if (navLinks[sectionsOrder[i].menuIndex]) {
-          navLinks[sectionsOrder[i].menuIndex].classList.add('active');
-        }
-        activeFound = true;
-        break;
-      }
-    }
-    
-    if (!activeFound && navLinks[0]) {
-      navLinks.forEach(link => link.classList.remove('active'));
-      navLinks[0].classList.add('active');
-    }
-  }
-
-  // Scroll to top button
-  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-  scrollToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-
-  // Show/hide scroll to top button
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-      scrollToTopBtn.style.display = 'flex';
-    } else {
-      scrollToTopBtn.style.display = 'none';
-    }
-    updateActiveMenuOnScroll();
-  });
-  
-  // Initial hide scroll button
-  scrollToTopBtn.style.display = 'none';
-  
-  // Set active menu awal
-  setTimeout(() => {
-    if (navLinks[0]) navLinks[0].classList.add('active');
-  }, 100);
-
-  // Copy link button
-  const btn = document.getElementById('copyLinkBtn');
-  if(btn) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const dummyLink = "https://" + "namablogkamu.blogspot.com/2026/04/bmc-creator-personal-branding.html";
-      navigator.clipboard.writeText(dummyLink).then(() => {
-        alert("✅ Link contoh tugas BMC disalin! Ganti dengan URL blog asli kamu, lalu kumpulkan ke ketua kelas.");
-      }).catch(() => {
-        prompt("Salin manual link berikut, lalu ganti dengan URL blog pribadi:", dummyLink);
-      });
-    });
-  }
+});
+function updateNav(){
+  const pos=window.scrollY+140; let cur=0;
+  sectionIds.forEach((id,i)=>{ const el=document.getElementById(id); if(el&&el.offsetTop<=pos) cur=i; });
+  navItems.forEach(n=>n.classList.remove('active'));
+  if(navItems[cur]) navItems[cur].classList.add('active');
+}
+const st=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{ st.style.display=window.scrollY>400?'flex':'none'; updateNav(); });
+st.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+setTimeout(()=>{ if(navItems[0]) navItems[0].classList.add('active'); },80);
+document.getElementById('joinBtn').addEventListener('click',e=>{ e.preventDefault(); alert('Terima kasih! Silakan cek email Anda untuk link pendaftaran komunitas BMC Pro.'); });
+document.getElementById('waBtn').addEventListener('click',e=>{ e.preventDefault(); const m='Halo! Saya tertarik dengan BMC Pro. Ingin bergabung dan berkonsultasi.'; window.open('https://wa.me/6281234567890?text='+encodeURIComponent(m),'_blank'); });
 </script>
 </body>
 </html>
